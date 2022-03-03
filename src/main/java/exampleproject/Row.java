@@ -2,6 +2,7 @@ package exampleproject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -30,14 +31,18 @@ public class Row {
         }
     }
 
-    public String compare(ArrayList<String> x){
+
+    //sammenligner fasiten med raden brukeren laget
+    public String compare(List<String> x){
         int sameColorAndPlace = 0;
         int sameColor = 0;
         for (String string : x) {
             if (this.row.contains(string) && x.indexOf(string)==this.row.indexOf(string)){
                 sameColorAndPlace += 1;
             }
-            if (this.row.contains(string) && !(x.indexOf(string)==this.row.indexOf(string))){
+            //feil validering, frequency var bare noe jeg prøvde...
+            if (this.row.contains(string) && !(x.indexOf(string)==this.row.indexOf(string))
+             && (Collections.frequency(x, string) <= Collections.frequency(this.row, string))){
                 sameColor += 1;
             }
         }
@@ -62,10 +67,8 @@ public class Row {
     public static void main(String[] args) {
         Row fasit = new Row();
         System.out.println(fasit.getRow());
-        //Row tester = new Row("RED", "GREEN", "BLUE", "RED");
-        List<String> x = new ArrayList<String>("RED", "GREEN", "BLUE", "YELLOW");
-        fasit.compare(x);
-        
+        Row tester = new Row("RED", "RED", "RED", "RED");
+        System.out.println(fasit.compare(tester.getRow())); 
         
     }
 }
