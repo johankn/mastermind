@@ -36,16 +36,30 @@ public class Row {
     public String compare(List<String> x){
         int sameColorAndPlace = 0;
         int sameColor = 0;
-        for (String string : x) {
-            if (this.row.contains(string) && x.indexOf(string)==this.row.indexOf(string)){
+        //lager en kopi av raden til brukeren for å eventuelt fjerne duplikater
+        List<String> newList = new ArrayList<>(x);
+
+        //sjekker om lik farge og posisjon
+        for (int i = 0; i < x.size(); i++) {
+            if (x.get(i)==this.row.get(i)){
                 sameColorAndPlace += 1;
             }
-            //feil validering, frequency var bare noe jeg prøvde...
-            if (this.row.contains(string) && !(x.indexOf(string)==this.row.indexOf(string))
-             && (Collections.frequency(x, string) <= Collections.frequency(this.row, string))){
-                sameColor += 1;
+            
+            //sjekker farge, men feil posisjon
+            else{
+                if (this.row.contains(x.get(i))){
+                    /*hvis i oppstår flere ganger hos brukeren enn i fasiten, må den fjernes for å ikke si 
+                    at brukeren har flere riktige brikker på feil pos enn det finnes av disse brikkene i fasiten*/
+                    if (Collections.frequency(newList, x.get(i)) <= Collections.frequency(this.row, x.get(i))){
+                        sameColor += 1;
+                        }
+                    else{
+                        newList.remove(x.get(i));
+                    
+                    }
+               } 
+            } 
             }
-        }
 
         if (sameColorAndPlace != 4){
             return "You got "+ sameColorAndPlace + " balls with the right color and at the right place, and " + 
@@ -67,7 +81,7 @@ public class Row {
     public static void main(String[] args) {
         Row fasit = new Row();
         System.out.println(fasit.getRow());
-        Row tester = new Row("RED", "RED", "RED", "RED");
+        Row tester = new Row("RED", "RED", "BLUE", "BLUE");
         System.out.println(fasit.compare(tester.getRow())); 
         
     }
