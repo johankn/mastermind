@@ -60,7 +60,7 @@ public class Row {
                } 
             } 
             }
-
+        //her kan vi også bare ha en toString på slutten istedenfor 
         if (sameColorAndPlace != 4){
             return "You got "+ sameColorAndPlace + " balls with the right color and at the right place, and " + 
             sameColor + " balls with the right color, but in the wrong place";
@@ -81,7 +81,7 @@ public class Row {
     public static void main(String[] args) {
         Row fasit = new Row();
         System.out.println(fasit.getRow());
-        Row tester = new Row("RED", "RED", "BLUE", "BLUE");
+        Row tester = new Row("RED", "GREEN", "BLACK", "BLUE");
         System.out.println(fasit.compare(tester.getRow())); 
         
     }
