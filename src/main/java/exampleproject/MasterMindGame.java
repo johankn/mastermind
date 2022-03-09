@@ -20,6 +20,8 @@ public class MasterMindGame {
 
         //give feedback
 
+        //(når spiller gjetter riktig: push navn og antall tries til leaderboard / sortert)?
+
 
         
     }

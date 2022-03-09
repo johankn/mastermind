@@ -31,7 +31,6 @@ public class Row {
         }
     }
 
-
     //sammenligner fasiten med raden brukeren laget
     public String compare(List<String> x){
         int sameColorAndPlace = 0;
@@ -76,13 +75,16 @@ public class Row {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "Row [row=" + row + "]";
+    }
 
     public static void main(String[] args) {
         Row fasit = new Row();
         System.out.println(fasit.getRow());
         Row tester = new Row("RED", "GREEN", "BLACK", "BLUE");
         System.out.println(fasit.compare(tester.getRow())); 
-        
+        System.out.println(tester.toString());
     }
 }

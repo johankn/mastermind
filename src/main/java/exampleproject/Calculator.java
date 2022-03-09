@@ -1,7 +1,10 @@
 package exampleproject;
 
+import java.util.ArrayList;
+
 public class Calculator {
     private String operator;
+    public ArrayList<String> yolo = new ArrayList<String>();
 
     public Calculator(String operator) {
         if (!checkValidOperator(operator))
@@ -30,6 +33,15 @@ public class Calculator {
                 return a / b;
             default:
                 throw new IllegalArgumentException("Invalid operation");
+        }
+    }
+
+    public void compare(ArrayList<String> x) {
+        for (String farge : yolo) {
+            if((x.contains(farge)) && (x.indexOf(farge) == yolo.indexOf(farge))) {
+
+            }
+            
         }
     }
 }
