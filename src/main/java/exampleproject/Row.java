@@ -85,6 +85,6 @@ public class Row {
         System.out.println(fasit.getRow());
         Row tester = new Row("RED", "GREEN", "BLACK", "BLUE");
         System.out.println(fasit.compare(tester.getRow())); 
-        System.out.println(tester.toString());
+        
     }
 }
