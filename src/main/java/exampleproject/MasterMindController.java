@@ -1,13 +1,19 @@
 package exampleproject;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 
 public class MasterMindController {
-    @FXML
-    private void handleButtonClick() {
-    Circle circle = new Circle();
-      circle.setCenterX(300.0f);
-      circle.setCenterY(135.0f);
-      circle.setRadius(100.0f);
+    @FXML Button BLUE;
+    @FXML Label label;
+
+//hvis man trykker på BLUE-knappen kommer det opp blue på første rute
+    public void handleButtonClick(){
+        System.out.println("halla");
+        label.setText("BLUE");
+    }
+    
 }
