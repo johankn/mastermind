@@ -16,7 +16,7 @@ public class MasterMindApp extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("Master Mind");
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("MasterMindApp.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("MasterMind.fxml"))));
         primaryStage.show();
     }
 
