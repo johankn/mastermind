@@ -24,19 +24,21 @@ public class Row {
         Random rand = new Random();
         int numberOfElements = 4;
 
-
-        for (int i = 0; i < numberOfElements; i++) {
+         (int i = 0; i < numberOfElements; i++) {
             int randomIndex = rand.nextInt((validColors).size());
             row.add(validColors.get(randomIndex));
         }
     }
 
     //sammenligner fasiten med raden brukeren laget
-    public String compare(List<String> x){
+    public String compare(List<String> YOLO){
         int sameColorAndPlace = 0;
         int sameColor = 0;
         //lager en kopi av raden til brukeren for å eventuelt fjerne duplikater
         List<String> newList = new ArrayList<>(x);
+
+        long x = row.stream().filter(yo -> YOLO.contains(x)).count();
+        
 
         //sjekker om lik farge og posisjon
         for (int i = 0; i < x.size(); i++) {
