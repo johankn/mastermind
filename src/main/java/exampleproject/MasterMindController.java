@@ -69,5 +69,14 @@ public class MasterMindController {
         (circles.get(counter)).setFill(javafx.scene.paint.Color.PURPLE);
     }
 
+    public void handleButtonClickSubmit(){
+        if (counter>1){
+            
+        }
+        else{
+
+        }
+    }
+
     
 }
