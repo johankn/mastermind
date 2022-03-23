@@ -41,6 +41,10 @@
                   <Circle fx:id="labelOne_4" fill="WHITE" radius="38.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="5" />
                   <Circle fx:id="labelOne_3" fill="WHITE" radius="38.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                   <Circle fx:id="labelThree_4" fill="WHITE" radius="38.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Circle fx:id="labelFour_1" fill="WHITE" radius="38.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="2" />
+                  <Circle fx:id="labelFour_4" fill="WHITE" radius="38.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Circle fx:id="labelFour_3" fill="WHITE" radius="38.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Circle fx:id="labelFour_2" fill="WHITE" radius="38.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </children></Pane>

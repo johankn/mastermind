@@ -14,36 +14,68 @@ public class MasterMindController {
     @FXML Circle labelOne_2;
     @FXML Circle labelOne_3;
     @FXML Circle labelOne_4;
+
+    @FXML Circle labelTwo_1;
+    @FXML Circle labelTwo_2;
+    @FXML Circle labelTwo_3;
+    @FXML Circle labelTwo_4;
+
+    @FXML Circle labelThree_1;
+    @FXML Circle labelThree_2;
+    @FXML Circle labelThree_3;
+    @FXML Circle labelThree_4;
+
+    @FXML Circle labelFour_1;
+    @FXML Circle labelFour_2;
+    @FXML Circle labelFour_3;
+    @FXML Circle labelFour_4;
+
     @FXML Label choose4;
     @FXML Label feedBack;
     private ArrayList<Circle> circles = new ArrayList<>();
     
     int counter = -1;
+    int submitCounter = 0;
+    int randomCounter = -4;
     Row fasit = new Row();
     
 
-//hvis man trykker på BLUE-knappen kommer det opp blue på første rute osv, føler man kan bruke for løkke bedre her
+//initialiserer det som skjer når man starter appen
     @FXML
     public void initialize(){
         circles.add(labelOne_1);
         circles.add(labelOne_2);
         circles.add(labelOne_3);
         circles.add(labelOne_4);
+
+        circles.add(labelTwo_1);
+        circles.add(labelTwo_2);
+        circles.add(labelTwo_3);
+        circles.add(labelTwo_4);
+
+        circles.add(labelThree_1);
+        circles.add(labelThree_2);
+        circles.add(labelThree_3);
+        circles.add(labelThree_4);
+
+        circles.add(labelFour_1);
+        circles.add(labelFour_2);
+        circles.add(labelFour_3);
+        circles.add(labelFour_4);
+
         fasit.random();
     }
 
     public void handleButtonClickBlue(){
         counter += 1;
         
-        (circles.get(counter)).setFill(javafx.scene.paint.Color.BLUE);
-         
+        (circles.get(counter)).setFill(javafx.scene.paint.Color.BLUE);    
     }
 
     public void handleButtonClickBlack(){
         counter += 1;
         
         (circles.get(counter)).setFill(javafx.scene.paint.Color.BLACK);
-
     }
     public void handleButtonClickYellow(){
         counter += 1;
@@ -68,7 +100,8 @@ public class MasterMindController {
 
     public void handleButtonClickSubmit(){
         choose4.setText("");
-        if (counter>2){
+        if ((counter==3)||(counter==7)||(counter==11)||(counter==15)){
+            feedBack.setText("");
             List<Paint> colors = circles.stream().map(Circle::getFill).collect(Collectors.toList());
             List<String> newList = new ArrayList<>();
             for (Paint paint : colors) {
@@ -95,13 +128,15 @@ public class MasterMindController {
                     newList.set(i, "PURPLE");
                 }
             }
-            Row tester = new Row();
-            tester.addColor(newList.get(0));
-            tester.addColor(newList.get(1));
-            tester.addColor(newList.get(2));
-            tester.addColor(newList.get(3));
+            submitCounter += 4;
+            randomCounter += 4;
 
-            feedBack.setText(fasit.compare(tester.getRow()));
+            Row tester = new Row();
+            for (String string : newList) {
+                tester.addColor(string);
+            }
+
+            feedBack.setText(fasit.compare((tester.getRow()).subList(randomCounter,submitCounter)));
             
         }
         else{
@@ -109,10 +144,11 @@ public class MasterMindController {
         }
     }
     public void handleButtonClickUndo(){
-        for (Circle circle : circles) {
+        for (Circle circle : circles.subList(randomCounter, submitCounter)) {
             circle.setFill(javafx.scene.paint.Color.WHITE);
         }
-        this.circles.removeAll(circles);
+        List <Circle> removeList = circles.subList(randomCounter, submitCounter);
+        removeList.removeAll(circles);
         counter = -1;
         circles.add(labelOne_1);
         circles.add(labelOne_2);
