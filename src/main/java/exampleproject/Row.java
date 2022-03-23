@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class Row {
     public List <String> row = new ArrayList<String>();
-    private List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
+    public List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
     public boolean isFull = false;
     
 
@@ -90,14 +90,6 @@ public class Row {
         Row fasit = new Row();
         fasit.random();
         System.out.println(fasit);
-        Row tester = new Row();
-        tester.addColor("BLUE");
-        tester.addColor("RED");
-        tester.addColor("GREEN");
-        tester.addColor("RED");
-        tester.addColor("BLACK");
-        System.out.println(tester);
-        System.out.println(fasit.compare(tester.getRow()));
 
         
     }
