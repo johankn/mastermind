@@ -1,5 +1,9 @@
 package exampleproject;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -65,6 +69,18 @@ public class Player implements Comparable<Player>{
         return this.getScore() - o.getScore();
     }
 
+    public void write2file(Player p){
+        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("LeaderBoard.txt", true)))) {
+            pw.println(p);
+            pw.close();
+
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     
 
     @Override
@@ -73,17 +89,16 @@ public class Player implements Comparable<Player>{
     }
 
     public static void main(String[] args) {
+       Player p1 = new Player("Per", 10);
+       Player p2 = new Player("Pål", 15);
+       Player p3 = new Player("Line", 2);
+       ArrayList<Player> X = new ArrayList<Player>(Arrays.asList(p1, p2, p3));
+       System.out.println(X);
+       X.sort()
         
-        Player p1 = new Player("petter", 10);
-        Player p2 = new Player("Jens69", 4);
-        Player p3 = new Player("Drake", 17);
-        Player p4 = new Player();
-        Player p5 = new Player();
 
-        ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(p1,p2,p3,p4,p5));
-        System.out.println(players);
-        Collections.sort(players);
-        System.out.println(players);
+        
+        
         
 
 
