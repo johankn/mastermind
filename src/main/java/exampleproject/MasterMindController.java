@@ -1,6 +1,7 @@
 package exampleproject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,16 +34,36 @@ public class MasterMindController {
     @FXML Circle labelFour_3;
     @FXML Circle labelFour_4;
 
+    @FXML Circle labelFive_1;
+    @FXML Circle labelFive_2;
+    @FXML Circle labelFive_3;
+    @FXML Circle labelFive_4;
+
+    @FXML Circle labelSix_1;
+    @FXML Circle labelSix_2;
+    @FXML Circle labelSix_3;
+    @FXML Circle labelSix_4;
+
+    @FXML Circle labelSeven_1;
+    @FXML Circle labelSeven_2;
+    @FXML Circle labelSeven_3;
+    @FXML Circle labelSeven_4;
+
     @FXML Label choose4;
     @FXML Label feedBack;
     public ArrayList<Circle> circles = new ArrayList<>();
     
-    /*private ArrayList<Circle> rowTwo = new ArrayList<>()
+    private ArrayList<Circle> rowTwo = new ArrayList<>();
     private ArrayList<Circle> rowThree = new ArrayList<>();
-    private ArrayList<Circle> rowFour = new ArrayList<>();*/
-    //private ArrayList<Circle> rowFive = new ArrayList<>();
-    
+    private ArrayList<Circle> rowFour = new ArrayList<>();
+    private ArrayList<Circle> rowFive = new ArrayList<>();
+    private ArrayList<Circle> rowSix = new ArrayList<>();
+    private ArrayList<Circle> rowSeven = new ArrayList<>();
+
+    private ArrayList<ArrayList<Circle>> listOfRows = new ArrayList<ArrayList<Circle>>();
+
     int counter = -1;
+    int submitCounter = 0;
     Row fasit = new Row();
     Row tryList = new Row();
     
@@ -56,21 +77,43 @@ public class MasterMindController {
         circles.add(labelOne_3);
         circles.add(labelOne_4);
 
-        /*circles.add(labelTwo_1);
-        circles.add(labelTwo_2);
-        circles.add(labelTwo_3);
-        circles.add(labelTwo_4);
+        rowTwo.add(labelTwo_1);
+        rowTwo.add(labelTwo_2);
+        rowTwo.add(labelTwo_3);
+        rowTwo.add(labelTwo_4);
 
-        circles.add(labelThree_1);
-        circles.add(labelThree_2);
-        circles.add(labelThree_3);
-        circles.add(labelThree_4);
+        rowThree.add(labelThree_1);
+        rowThree.add(labelThree_2);
+        rowThree.add(labelThree_3);
+        rowThree.add(labelThree_4);
 
-        circles.add(labelFour_1);
-        circles.add(labelFour_2);
-        circles.add(labelFour_3);
-        circles.add(labelFour_4);*/
-    
+        rowFour.add(labelFour_1);
+        rowFour.add(labelFour_2);
+        rowFour.add(labelFour_3);
+        rowFour.add(labelFour_4);
+
+        rowFive.add(labelFive_1);
+        rowFive.add(labelFive_2);
+        rowFive.add(labelFive_3);
+        rowFive.add(labelFive_4);
+
+        rowSix.add(labelSix_1);
+        rowSix.add(labelSix_2);
+        rowSix.add(labelSix_3);
+        rowSix.add(labelSix_4);
+
+        rowSeven.add(labelSeven_1);
+        rowSeven.add(labelSeven_2);
+        rowSeven.add(labelSeven_3);
+        rowSeven.add(labelSeven_4);
+
+        listOfRows.add(rowTwo);
+        listOfRows.add(rowThree);
+        listOfRows.add(rowFour);
+        listOfRows.add(rowFive);
+        listOfRows.add(rowSix);
+        listOfRows.add(rowSeven);
+
         fasit.random();
         System.out.println(fasit.getRow());
     }
@@ -97,11 +140,14 @@ public class MasterMindController {
 
     public void handleButtonClickSubmit(){
         choose4.setText("");
-        if (((counter==3)||(counter==7)||(counter==11)||(counter==15))){
+        if ((counter==3)){
             feedBack.setText("");
 
             feedBack.setText(fasit.compare(tryList.getRow()));
-           
+            updateRow(listOfRows.get(submitCounter));
+            submitCounter += 1;
+            counter = -1;
+            this.tryList = new Row();
         }
         else{
             choose4.setText("You have to pick four!");
@@ -117,6 +163,15 @@ public class MasterMindController {
         //(tryList.getRow()).subList(tryList.getRow().size() - 4, tryList.getRow().size()).clear();
         
     }
+    }
+    public void updateRow(ArrayList<Circle> x){
+        for (int i = 0; i < x.size(); i++) {
+            x.get(i).setFill(circles.get(i).getFill());
+        }
+
+        for (Circle circle : circles) {
+            circle.setFill(javafx.scene.paint.Color.WHITE);
+        }
     }
 
     
