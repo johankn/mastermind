@@ -9,17 +9,19 @@ import java.util.Random;
 public class Row {
     public List <String> row = new ArrayList<String>();
     public List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
+    //BLUE, BLACK, YELLOW, RED, GREEN, PURPLE rekkefølge
     public boolean isFull = false;
+    public String feedBack;
     
 
     //brukeren lager en rad med en og en farge om gangen
     public void addColor(String a){
-        if (row.size()<4){
-        row.add(a);}
+        //if (row.size()<4){
+        row.add(a);//}
 
-        if (row.size()==4){
+        /*if (row.size()==4){
             isFull = true;
-        }
+        }*/
     }
 
     //generer tilfeldig fasit
@@ -46,16 +48,16 @@ public class Row {
 
         //sjekker om lik farge og posisjon
         for (int i = 0; i < x.size(); i++) {
-            if (x.get(i)==this.row.get(i)){
+            if (x.get(i).equals(row.get(i))){
                 sameColorAndPlace += 1;
             }
             
             //sjekker farge, men feil posisjon
             else{
-                if (this.row.contains(x.get(i))){
+                if (row.contains(x.get(i))){
                     /*hvis i oppstår flere ganger hos brukeren enn i fasiten, må den fjernes for å ikke si 
                     at brukeren har flere riktige brikker på feil pos enn det finnes av disse brikkene i fasiten*/
-                    if (Collections.frequency(newList, x.get(i)) <= Collections.frequency(this.row, x.get(i))){
+                    if (Collections.frequency(newList, x.get(i)) <= Collections.frequency(row, x.get(i))){
                         sameColor += 1;
                         }
                     else{
@@ -90,7 +92,13 @@ public class Row {
         Row fasit = new Row();
         fasit.random();
         System.out.println(fasit);
-
+        Row tester = new Row();
+        tester.addColor("BLUE");
+        tester.addColor("BLACK");
+        tester.addColor("GREEN");
+        tester.addColor("PURPLE");
+        System.out.println(tester);
+        System.out.println(fasit.compare(tester.getRow()));
         
     }
 }

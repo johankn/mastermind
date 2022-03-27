@@ -6,7 +6,9 @@ public class MasterMindGame {
     private boolean gameOver = false;
 
     public static void playGame(){
-        //enter name
+        
+    }
+    //enter name
 
 
         //generer en riktig fasit
@@ -22,8 +24,6 @@ public class MasterMindGame {
 
         //(når spiller gjetter riktig: push navn og antall tries til leaderboard / sortert)?
 
-
-        
-    }
+    
     
 }

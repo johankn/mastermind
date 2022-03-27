@@ -50,27 +50,27 @@
          </children></Pane>
       <Pane layoutX="14.0" layoutY="523.0" prefHeight="131.0" prefWidth="382.0">
          <children>
-            <Button fx:id="BLUE" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickBlue" prefHeight="42.0" prefWidth="53.0" text="BLUE">
+            <Button fx:id="BLUE" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickColor" prefHeight="42.0" prefWidth="53.0" text="BLUE">
                <font>
                   <Font size="10.0" />
                </font></Button>
-            <Button fx:id="BLACK" layoutX="73.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickBlack" prefHeight="42.0" prefWidth="53.0" text="BLACK">
+            <Button fx:id="BLACK" layoutX="73.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickColor" prefHeight="42.0" prefWidth="53.0" text="BLACK">
                <font>
                   <Font size="10.0" />
                </font></Button>
-            <Button fx:id="YELLOW" layoutX="132.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickYellow" prefHeight="42.0" prefWidth="53.0" text="YELLOW">
+            <Button fx:id="YELLOW" layoutX="132.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickColor" prefHeight="42.0" prefWidth="53.0" text="YELLOW">
                <font>
                   <Font size="10.0" />
                </font></Button>
-            <Button fx:id="RED" layoutX="191.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickRed" prefHeight="42.0" prefWidth="53.0" text="RED">
+            <Button fx:id="RED" layoutX="191.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickColor" prefHeight="42.0" prefWidth="53.0" text="RED">
                <font>
                   <Font size="10.0" />
                </font></Button>
-            <Button fx:id="GREEN" layoutX="250.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickGreen" prefHeight="42.0" prefWidth="53.0" text="GREEN">
+            <Button fx:id="GREEN" layoutX="250.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickColor" prefHeight="42.0" prefWidth="53.0" text="GREEN">
                <font>
                   <Font size="10.0" />
                </font></Button>
-            <Button fx:id="PURPLE" layoutX="309.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickPurple" prefHeight="42.0" prefWidth="53.0" text="PURPLE">
+            <Button fx:id="PURPLE" layoutX="309.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonClickColor" prefHeight="42.0" prefWidth="53.0" text="PURPLE">
                <font>
                   <Font size="10.0" />
                </font></Button>
