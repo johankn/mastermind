@@ -121,7 +121,7 @@ public class MasterMindController {
 
     public void handleButtonClickColor(ActionEvent event){
 
-        if (counter<4){
+        if (counter<3){
         Button activatedButton = (Button) event.getSource();
         Button clicked = (Button) activatedButton;
         String colour = clicked.getId();
@@ -135,6 +135,9 @@ public class MasterMindController {
         counter += 1;
         (circles.get(counter)).setFill(x);
         
+    }
+    else{
+        choose4.setText("Click submit");
     } 
     }
 

@@ -56,7 +56,7 @@
                   <Circle fx:id="labelSix_1" fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1" />
                   <Circle fx:id="labelFive_4" fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                   <Circle fx:id="labelSeven_4" fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" />
-                  <Circle fx:id="labelSeven_1" fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" />
+                  <Circle fx:id="labelSeven_2" fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" />
                   <Circle fx:id="labelSeven_3" fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" />
                   <Circle fx:id="labelSeven_1" fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
