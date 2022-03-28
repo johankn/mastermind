@@ -1,10 +1,17 @@
 package exampleproject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.function.BiConsumer;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
 
 public class Row {
     public List <String> row = new ArrayList<String>();
@@ -101,4 +108,8 @@ public class Row {
         System.out.println(fasit.compare(tester.getRow()));
         
     }
+
+    
 }
+
+

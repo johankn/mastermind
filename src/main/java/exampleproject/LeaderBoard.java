@@ -20,7 +20,7 @@ public class LeaderBoard implements Comparator<Player>{
     int numberOfPlayers;
     private List<Player> players;
 
-    void initializeLeaderboard(){
+     void initializeLeaderboard(){
         try (PrintWriter writer = new PrintWriter("LeaderBoard.txt")) {
             writer.print("");
         } 
@@ -85,6 +85,7 @@ public class LeaderBoard implements Comparator<Player>{
         Player p4 = new Player("Osvald", 20);
         lb.write2file(p4);
         lb.printLeaderboard();
+        
         
        
 
