@@ -50,8 +50,14 @@ public class MasterMindController {
     @FXML Circle labelSeven_4;
 
     @FXML Label choose4;
-    @FXML Label feedBack;
-    public ArrayList<Circle> circles = new ArrayList<>();
+
+    @FXML Label FB1;
+    @FXML Label FB2;
+    @FXML Label FB3;
+    @FXML Label FB4;
+    @FXML Label FB5;
+    @FXML Label FB6;
+    private ArrayList<Circle> circles = new ArrayList<>();
     
     private ArrayList<Circle> rowTwo = new ArrayList<>();
     private ArrayList<Circle> rowThree = new ArrayList<>();
@@ -62,10 +68,12 @@ public class MasterMindController {
 
     private ArrayList<ArrayList<Circle>> listOfRows = new ArrayList<ArrayList<Circle>>();
 
-    int counter = -1;
-    int submitCounter = 0;
-    Row fasit = new Row();
-    Row tryList = new Row();
+    private ArrayList<Label> feedBacks = new ArrayList<>();
+
+    private int counter = -1;
+    private int submitCounter = 0;
+    private Row fasit = new Row();
+    private Row tryList = new Row();
     
     
 
@@ -114,13 +122,21 @@ public class MasterMindController {
         listOfRows.add(rowSix);
         listOfRows.add(rowSeven);
 
+         feedBacks.add(FB1);
+         feedBacks.add(FB2);
+         feedBacks.add(FB3);
+         feedBacks.add(FB4);
+         feedBacks.add(FB5);
+         feedBacks.add(FB6);
+
+
         fasit.random();
         System.out.println(fasit.getRow());
     }
 //hva som skjer når man trykker på fargene
 
     public void handleButtonClickColor(ActionEvent event){
-
+    choose4.setText("");
         if (counter<3){
         Button activatedButton = (Button) event.getSource();
         Button clicked = (Button) activatedButton;
@@ -130,7 +146,8 @@ public class MasterMindController {
 
         Color x = Color.web(colour);
 
-        //for løkke her om hvilken rad man er på, kan prøve counter, en liste for hver rad osv
+        //dette er åpenbart tatt fra stackOverflow^^^
+
 
         counter += 1;
         (circles.get(counter)).setFill(x);
@@ -144,9 +161,8 @@ public class MasterMindController {
     public void handleButtonClickSubmit(){
         choose4.setText("");
         if ((counter==3)){
-            feedBack.setText("");
 
-            feedBack.setText(fasit.compare(tryList.getRow()));
+            feedBacks.get(submitCounter).setText(fasit.compare(tryList.getRow()));
             updateRow(listOfRows.get(submitCounter));
             submitCounter += 1;
             counter = -1;
@@ -157,6 +173,7 @@ public class MasterMindController {
         }
     }
     public void handleButtonClickUndo(){
+        choose4.setText("");
         if (counter>-1){
             counter = -1;
         for (Circle circle : circles) {
@@ -167,7 +184,7 @@ public class MasterMindController {
         
     }
     }
-    public void updateRow(ArrayList<Circle> x){
+    private void updateRow(ArrayList<Circle> x){
         for (int i = 0; i < x.size(); i++) {
             x.get(i).setFill(circles.get(i).getFill());
         }

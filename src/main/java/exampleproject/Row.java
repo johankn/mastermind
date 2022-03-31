@@ -7,11 +7,9 @@ import java.util.List;
 import java.util.Random;
 
 public class Row {
-    public List <String> row = new ArrayList<String>();
-    public List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
+    private List <String> row = new ArrayList<String>();
+    private List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
     //BLUE, BLACK, YELLOW, RED, GREEN, PURPLE rekkefølge
-    public boolean isFull = false;
-    public String feedBack;
     
 
     //brukeren lager en rad med en og en farge om gangen
@@ -67,10 +65,11 @@ public class Row {
                } 
             } 
             }
+        
         //her kan vi også bare ha en toString på slutten istedenfor 
         if (sameColorAndPlace != 4){
-            return "You got "+ sameColorAndPlace + " balls with the right color and at the right place, and " + 
-            sameColor + " balls with the right color, but in the wrong place";
+            return "You got "+ sameColor + " circles with the right color, and " + sameColorAndPlace
+             + " circles at the right place";
         }
         else{
             return "You won the game!";
