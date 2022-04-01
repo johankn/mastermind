@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Row {
+    //innkapsling er nå riktig
     private List <String> row = new ArrayList<String>();
     private List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
     //BLUE, BLACK, YELLOW, RED, GREEN, PURPLE rekkefølge
