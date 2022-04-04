@@ -66,11 +66,10 @@ public class Row {
                } 
             } 
             }
-        
         //her kan vi også bare ha en toString på slutten istedenfor 
         if (sameColorAndPlace != 4){
-            return "You got "+ sameColor + " circles with the right color, and " + sameColorAndPlace
-             + " circles at the right place";
+            return "Right color and place: "+ sameColorAndPlace + "\n"+
+            "Right color but wrong place: " + sameColor + "";
         }
         else{
             return "You won the game!";
