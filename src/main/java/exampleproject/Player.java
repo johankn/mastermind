@@ -94,7 +94,9 @@ public class Player implements Comparable<Player>{
        Player p3 = new Player("Line", 2);
        ArrayList<Player> X = new ArrayList<Player>(Arrays.asList(p1, p2, p3));
        System.out.println(X);
-       X.sort()
+       Collections.sort(X);
+       System.out.println(X);
+    
         
 
         
