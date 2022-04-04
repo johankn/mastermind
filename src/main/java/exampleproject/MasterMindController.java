@@ -72,6 +72,7 @@ public class MasterMindController {
 //initialiserer det som skjer når man starter appen
     @FXML
     public void initialize(){
+        
         circles.add(labelOne_1);
         circles.add(labelOne_2);
         circles.add(labelOne_3);
