@@ -70,13 +70,8 @@ public class MasterMindController {
 
     private ArrayList<Label> feedBacks = new ArrayList<>();
 
-    private int counter = -1;
-    private int submitCounter = 0;
-    private Row fasit = new Row();
-    private Row tryList = new Row();
+    private MasterMindGame game = new MasterMindGame();
     
-    
-
 //initialiserer det som skjer når man starter appen
     @FXML
     public void initialize(){
@@ -129,29 +124,25 @@ public class MasterMindController {
          feedBacks.add(FB4);
          feedBacks.add(FB5);
          feedBacks.add(FB6);
-
-
-        fasit.random();
-        System.out.println(fasit.getRow());
     }
 //hva som skjer når man trykker på fargene
 
     public void handleButtonClickColor(ActionEvent event){
     choose4.setText("");
-        if (counter<3){
+        if (game.getCounter()<3){
         Button activatedButton = (Button) event.getSource();
         Button clicked = (Button) activatedButton;
         String colour = clicked.getId();
 
-        this.tryList.addColor(colour);
+        game.getTryList().addColor(colour);
 
         Color x = Color.web(colour);
 
         //dette er åpenbart tatt fra stackOverflow^^^
 
 
-        counter += 1;
-        (circles.get(counter)).setFill(x);
+        game.updateCounter();
+        (circles.get(game.getCounter())).setFill(x);
         
     }
     else{
@@ -161,13 +152,13 @@ public class MasterMindController {
 
     public void handleButtonClickSubmit(){
         choose4.setText("");
-        if ((counter==3)){
+        if ((game.getCounter()==3)){
 
-            feedBacks.get(submitCounter).setText(fasit.compare(tryList.getRow()));
-            updateRow(listOfRows.get(submitCounter));
-            submitCounter += 1;
-            counter = -1;
-            this.tryList = new Row();
+            feedBacks.get(game.getSubmitCounter()).setText(game.getFasit().compare(game.getTryList().getRow()));
+            updateRow(listOfRows.get(game.getSubmitCounter()));
+            game.updateSubmitCounter();
+            game.setCounter(-1);
+            game.setTryList(new Row());
         }
         else{
             choose4.setText("You have to pick four!");
@@ -175,12 +166,12 @@ public class MasterMindController {
     }
     public void handleButtonClickUndo(){
         choose4.setText("");
-        if (counter>-1){
-            counter = -1;
+        if (game.getCounter()>-1){
+            game.setCounter(-1);
         for (Circle circle : circles) {
             circle.setFill(javafx.scene.paint.Color.WHITE);
         }
-        this.tryList = new Row();
+        game.setTryList(new Row());
         //(tryList.getRow()).subList(tryList.getRow().size() - 4, tryList.getRow().size()).clear();
         
     }

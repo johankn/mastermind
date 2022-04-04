@@ -8,13 +8,14 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class LeaderBoard implements Comparator<Player>{
+public class LeaderBoard {
 
 
     int numberOfPlayers;
@@ -39,20 +40,29 @@ public class LeaderBoard implements Comparator<Player>{
         }
     }
 
-    public void write2file(Player p) {
-    
+    public List<Player> getListOfPlayers(){
+
         try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){ 
             players = liste
             .map(x -> new Player(x.split(" ")[0], Integer.parseInt(x.split(" ")[1])))
             .collect(Collectors.toList());
-
-            players.add(p);
-            Collections.sort(players);
-
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+
+        return new ArrayList<>(players);
+
+    }
+
+    public LeaderBoard() {
+    }
+
+    public void write2file(Player p) {
+
+        players = this.getListOfPlayers();
+        players.add(p);
+        Collections.sort(players);
 
 
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("LeaderBoard.txt", false)))) {
@@ -66,12 +76,7 @@ public class LeaderBoard implements Comparator<Player>{
         }
 
     }
-    
-    @Override
-    public int compare(Player p1, Player p2) {
-        return p1.getScore() - p2.getScore();
-        
-    }
+
 
     public static void main(String[] args) {
         LeaderBoard lb = new LeaderBoard();
@@ -85,6 +90,8 @@ public class LeaderBoard implements Comparator<Player>{
         Player p4 = new Player("Osvald", 20);
         lb.write2file(p4);
         lb.printLeaderboard();
+        
+        
         
         
        
