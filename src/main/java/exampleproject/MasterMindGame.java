@@ -1,7 +1,5 @@
 package exampleproject;
 
-import java.util.ArrayList;
-
 public class MasterMindGame {
 
     private int counter = -1;
@@ -11,14 +9,13 @@ public class MasterMindGame {
 
     public MasterMindGame() {
         fasit.random();
-
     }
 
-    public void updateCounter() {
+    public void counterPlusOne() {
         this.counter += 1;
     }
 
-    public void updateSubmitCounter() {
+    public void submitCounterPlusOne() {
         this.submitCounter += 1;
     }
 
@@ -28,29 +25,32 @@ public class MasterMindGame {
     public void setCounter(int counter) {
         this.counter = counter;
     }
+
     public int getSubmitCounter() {
         return submitCounter;
     }
+
     public void setSubmitCounter(int submitCounter) {
         this.submitCounter = submitCounter;
     }
+
     public Row getFasit() {
         return this.fasit;
     }
+
     public void setFasit(Row fasit) {
         this.fasit = fasit;
     }
+
     public Row getTryList() {
         return this.tryList;
     }
+    
     public void setTryList(Row tryList) {
         this.tryList = tryList;
     }
-        
 
     public static void gameOver() {
-        
-
     }
 
     

@@ -69,20 +69,6 @@ public class Player implements Comparable<Player>{
         return this.getScore() - o.getScore();
     }
 
-    public void write2file(Player p){
-        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("LeaderBoard.txt", true)))) {
-            pw.println(p);
-            pw.close();
-
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    
-
     @Override
     public String toString() {
         return name + " " + score;

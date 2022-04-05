@@ -37,7 +37,6 @@ public class Row {
         int numberOfElements = 4;
         Random rand = new Random();
         
-
          for (int i = 0; i < numberOfElements; i++) {
             int randomIndex = rand.nextInt((validColors).size());
             row.add(validColors.get(randomIndex));
@@ -52,7 +51,6 @@ public class Row {
         List<String> newList = new ArrayList<>(x);
 
         //long y = row.stream().filter(yo -> x.contains(x)).count();
-        
 
         //sjekker om lik farge og posisjon
         for (int i = 0; i < x.size(); i++) {
@@ -75,6 +73,7 @@ public class Row {
                } 
             } 
             }
+
         //her kan vi også bare ha en toString på slutten istedenfor 
         if (sameColorAndPlace != 4){
             return "Right color and place: "+ sameColorAndPlace + "\n"+
@@ -86,20 +85,16 @@ public class Row {
             return "You won the game!";
 
         }
-
     }
     
     public List<String> getRow() {
         return new ArrayList<>(row);
     }
 
-
     @Override
     public String toString() {
         return ""+row+"";
     }
-
-    
 
     public static void main(String[] args) {
         Row fasit = new Row();
@@ -111,8 +106,7 @@ public class Row {
         tester.addColor("GREEN");
         tester.addColor("PURPLE");
         System.out.println(tester);
-        System.out.println(fasit.compare(tester.getRow()));
-        
+        System.out.println(fasit.compare(tester.getRow()));   
     }
 
     

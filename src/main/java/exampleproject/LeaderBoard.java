@@ -7,16 +7,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class LeaderBoard {
-
 
     int numberOfPlayers;
     private List<Player> players;
@@ -55,9 +52,6 @@ public class LeaderBoard {
 
     }
 
-    public LeaderBoard() {
-    }
-
     public void write2file(Player p) {
 
         players = this.getListOfPlayers();
@@ -74,9 +68,7 @@ public class LeaderBoard {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
 
     public static void main(String[] args) {
         LeaderBoard lb = new LeaderBoard();
@@ -90,6 +82,7 @@ public class LeaderBoard {
         Player p4 = new Player("Osvald", 20);
         lb.write2file(p4);
         lb.printLeaderboard();
+        lb.initializeLeaderboard();
         
         
         
