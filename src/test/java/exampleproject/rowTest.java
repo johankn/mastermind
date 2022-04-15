@@ -20,7 +20,7 @@ public class rowTest {
     }
 
     @Test
-    void testContructors(){
+    void testAddAndCompare(){
         fasit.addColor("YELLOW");
         fasit.addColor("GREEN");
         fasit.addColor("RED");
@@ -30,8 +30,9 @@ public class rowTest {
         newRow.addColor("BLACK");
         newRow.addColor("GREEN");
         
+        
 		Assertions.assertEquals(Arrays.asList("BLUE","RED","BLACK","GREEN"), newRow.getRow());
-        Assertions.assertEquals("You got 0 balls with the right color and at the right place, and 3 balls with the right color, but in the wrong place", fasit.compare(newRow.getRow()));
+        Assertions.assertEquals("Right color and place: 0\nRight color but wrong place: 3", fasit.compare(newRow.getRow()));
 		
     }
 }

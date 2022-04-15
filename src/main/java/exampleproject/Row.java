@@ -7,13 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import java.util.function.BiConsumer;
 
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Popup;
-import javafx.stage.Stage;
 
 public class Row {
     //innkapsling er nå riktig
@@ -24,8 +18,8 @@ public class Row {
 
     //brukeren lager en rad med en og en farge om gangen
     public void addColor(String a){
-        //if (row.size()<4){
-        row.add(a);//}
+        if (row.size()<4){
+        row.add(a);}
 
         /*if (row.size()==4){
             isFull = true;

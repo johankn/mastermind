@@ -9,6 +9,7 @@ public class MasterMindGame {
 
     public MasterMindGame() {
         fasit.random();
+        System.out.println(fasit);
     }
 
     public void counterPlusOne() {
