@@ -154,13 +154,7 @@ public class MasterMindController {
 
             feedBacks.get(game.getSubmitCounter()).setText(game.getFasit().compare(game.getTryList().getRow()));
             updateRow(listOfRows.get(game.getSubmitCounter()));
-            game.submitCounterPlusOne();
-            game.setCounter(-1);
-            game.setTryList(new Row());
-
-            if (game.getSubmitCounter() == 6) {
-                //trenger en popup for å hente navn til player
-            }
+            game.submit();
         }
         else{
             choose4.setText("You have to pick four!");

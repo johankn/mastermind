@@ -38,12 +38,16 @@ public class LeaderBoard {
     }
 
     public List<Player> getListOfPlayers(){
+        try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){
+            List<Player> players = liste.map(p -> new Player(p.split(" ")[0], Integer.parseInt(p.split(" ")[1]), 
+            Integer.parseInt(p.split(" ")[2]))).collect(Collectors.toList());
 
-        try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){ 
-            players = liste
-            .map(x -> new Player(x.split(" ")[0], Integer.parseInt(x.split(" ")[1])))
-            .collect(Collectors.toList());
         }
+
+        // try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){ 
+        //     players = liste.map(x -> new Player(x.split(" ")[0], Integer.parseInt(x.split(" ")[1], Integer.parseInt(x.split(" ")[2]))
+        //     .collect(Collectors.toList());
+        // }
         catch (IOException e) {
             e.printStackTrace();
         }
@@ -72,17 +76,17 @@ public class LeaderBoard {
 
     public static void main(String[] args) {
         LeaderBoard lb = new LeaderBoard();
-        Player p1 = new Player("jonny", 10);
-        Player p2 = new Player("peter", 6);
+        Player p1 = new Player("jonny", 10, 120);
+        Player p2 = new Player("peter", 6, 24);
         lb.write2file(p1);
         lb.write2file(p2);
         lb.printLeaderboard();
-        Player p3 = new Player("Trine", 2);
+        Player p3 = new Player("Trine", 2, 9);
         lb.write2file(p3);
-        Player p4 = new Player("Osvald", 20);
+        Player p4 = new Player("Osvald", 20, 88);
         lb.write2file(p4);
         lb.printLeaderboard();
-        lb.initializeLeaderboard();
+        
         
         
         

@@ -74,7 +74,6 @@ public class Row {
             "Right color but wrong place: " + sameColor + "";
         }
         else{
-
         
             return "You won the game!";
 

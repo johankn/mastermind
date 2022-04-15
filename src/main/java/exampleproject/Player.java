@@ -16,14 +16,16 @@ public class Player implements Comparable<Player>{
 
     private String name = "ukjent spiller";
     private int score = 0;
+    private int diffTime = 0;
 
     public Player(){
 
     }
 
-    public Player(String name, int score) {
+    public Player(String name, int score, int diffTime) {
         this.name = name;
         this.score = score;
+        this.diffTime = diffTime;
     }
 
 
@@ -64,20 +66,33 @@ public class Player implements Comparable<Player>{
         return score;
     }
 
+    public int getDiffTime() {
+        return diffTime;
+    }
+
+    public void setdiffTime(int diffTime) {
+        this.diffTime = diffTime;
+    }
+
+
     @Override
     public int compareTo(Player o) {
+        if (this.getScore()-o.getScore()==0) {
+            return (this.getDiffTime()-o.getDiffTime());
+            
+        }
         return this.getScore() - o.getScore();
     }
 
     @Override
     public String toString() {
-        return name + " " + score;
+        return name + " " + score + " " + diffTime;
     }
 
     public static void main(String[] args) {
-       Player p1 = new Player("Per", 10);
-       Player p2 = new Player("Pål", 15);
-       Player p3 = new Player("Line", 2);
+       Player p1 = new Player("Per", 10, 120);
+       Player p2 = new Player("Pål", 15, 18);
+       Player p3 = new Player("Line", 2, 12);
        ArrayList<Player> X = new ArrayList<Player>(Arrays.asList(p1, p2, p3));
        System.out.println(X);
        Collections.sort(X);
