@@ -9,11 +9,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
 public class MasterMindController {
+    @FXML Pane masterPane;
+
     @FXML Circle labelOne_1;
     @FXML Circle labelOne_2;
     @FXML Circle labelOne_3;
@@ -57,8 +60,13 @@ public class MasterMindController {
     @FXML Label FB4;
     @FXML Label FB5;
     @FXML Label FB6;
+
+    @FXML Label leaderBoard;
+
+    @FXML Label lostGame;
+
     private ArrayList<Circle> circles = new ArrayList<>();
-    
+
     private ArrayList<Circle> rowTwo = new ArrayList<>();
     private ArrayList<Circle> rowThree = new ArrayList<>();
     private ArrayList<Circle> rowFour = new ArrayList<>();
@@ -70,12 +78,15 @@ public class MasterMindController {
 
     private ArrayList<Label> feedBacks = new ArrayList<>();
 
-    private MasterMindGame game = new MasterMindGame();
-    
+    private LeaderBoard LeaderBoard = new LeaderBoard();
+
+    private MasterMindGame game;
+
 //initialiserer det som skjer når man starter appen
     @FXML
     public void initialize(){
-        
+        this.game = new MasterMindGame();
+
         circles.add(labelOne_1);
         circles.add(labelOne_2);
         circles.add(labelOne_3);
@@ -124,6 +135,7 @@ public class MasterMindController {
          feedBacks.add(FB4);
          feedBacks.add(FB5);
          feedBacks.add(FB6);
+
     }
 //hva som skjer når man trykker på fargene
 
@@ -134,27 +146,35 @@ public class MasterMindController {
         Button clicked = (Button) activatedButton;
         String colour = clicked.getId();
 
-        game.getTryList().addColor(colour);
+        game.getTryList().add(colour);
 
         Color x = Color.web(colour);
 
         //dette er åpenbart tatt fra stackOverflow^^^
 
         game.counterPlusOne();
-        (circles.get(game.getCounter())).setFill(x);    
+        (circles.get(game.getCounter())).setFill(x);
     }
     else{
         choose4.setText("Click submit");
-    } 
+    }
     }
 
     public void handleButtonClickSubmit(){
         choose4.setText("");
         if ((game.getCounter()==3)){
 
-            feedBacks.get(game.getSubmitCounter()).setText(game.getFasit().compare(game.getTryList().getRow()));
+            feedBacks.get(game.getSubmitCounter()).setText(game.compareRows());
             updateRow(listOfRows.get(game.getSubmitCounter()));
             game.submit();
+            if (game.isGameWon()==true){
+                leaderBoard.setText(LeaderBoard.printLeaderboard());
+            }
+            else if (game.isGameLost()==true){
+                masterPane.setVisible(false);
+                lostGame.setText("You lost the game!");
+            }
+            
         }
         else{
             choose4.setText("You have to pick four!");
@@ -167,9 +187,8 @@ public class MasterMindController {
         for (Circle circle : circles) {
             circle.setFill(javafx.scene.paint.Color.WHITE);
         }
-        game.setTryList(new Row());
-        //(tryList.getRow()).subList(tryList.getRow().size() - 4, tryList.getRow().size()).clear();
-        
+        game.setTryList(new ArrayList<>());
+
     }
     }
     private void updateRow(ArrayList<Circle> x){
@@ -181,5 +200,25 @@ public class MasterMindController {
             circle.setFill(javafx.scene.paint.Color.WHITE);
         }
     }
+    
+
+    // public void handleButtonClickRestart(){
+    //     this.circles = new ArrayList<>();
+
+    //     this.rowTwo = new ArrayList<>();
+    //     this.rowThree = new ArrayList<>();
+    //     this.rowFour = new ArrayList<>();
+    //     this.rowFive = new ArrayList<>();
+    //     this.rowSix = new ArrayList<>();
+    //     this.rowSeven = new ArrayList<>();
+
+    //     this.listOfRows = new ArrayList<ArrayList<Circle>>();
+    //     this.feedBacks = new ArrayList<>();
+
+    //     this.game = new MasterMindGame();
+    //     initialize();
+
+
+    // }
 
 }

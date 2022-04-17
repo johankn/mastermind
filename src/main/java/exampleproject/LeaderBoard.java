@@ -27,19 +27,22 @@ public class LeaderBoard {
         }
     }
 
-    void printLeaderboard(){
+    public String printLeaderboard(){
         try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){ 
-            liste.forEach(p -> System.out.println(p));
+            String topPlayers = liste.collect(Collectors.joining("\n"));
+            return topPlayers;
             
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+
+        return("could not load leaderboard");
     }
 
     public List<Player> getListOfPlayers(){
         try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){
-            List<Player> players = liste.map(p -> new Player(p.split(" ")[0], Integer.parseInt(p.split(" ")[1]), 
+            this.players = liste.map(p -> new Player(p.split(" ")[0], Integer.parseInt(p.split(" ")[1]), 
             Integer.parseInt(p.split(" ")[2]))).collect(Collectors.toList());
 
         }
@@ -80,12 +83,12 @@ public class LeaderBoard {
         Player p2 = new Player("peter", 6, 24);
         lb.write2file(p1);
         lb.write2file(p2);
-        lb.printLeaderboard();
         Player p3 = new Player("Trine", 2, 9);
         lb.write2file(p3);
-        Player p4 = new Player("Osvald", 20, 88);
+        Player p4 = new Player("Osvald", 2, 8);
         lb.write2file(p4);
         lb.printLeaderboard();
+        
         
         
         

@@ -70,7 +70,7 @@ public class Player implements Comparable<Player>{
         return diffTime;
     }
 
-    public void setdiffTime(int diffTime) {
+    public void setDiffTime(int diffTime) {
         this.diffTime = diffTime;
     }
 
