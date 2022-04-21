@@ -42,6 +42,17 @@ public class MasterMindGameTest {
     
     @Test
     void testGenerateFasit(){
+        List<String> validColors = new ArrayList<String>(Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE"));
+        Assertions.assertTrue(game.getFasit().stream().allMatch(x->validColors.contains(x)));
+        Assertions.assertEquals(4, game.getFasit().size());
+    }
+
+    @Test
+    void testGameWon(){
+        game.gameWon("Ola");
+        Assertions.assertEquals("Ola", (game.getPlayer().getName()));
+        Assertions.assertEquals(0, (game.getPlayer().getScore()));
+
         
     }
 

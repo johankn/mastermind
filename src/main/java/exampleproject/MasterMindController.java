@@ -198,6 +198,7 @@ public class MasterMindController {
             String name = textfield.getText();
             System.out.println(name);
             game.gameWon(name);
+            game.getLeaderBoard().write2file(game.getPlayer()); //kan enten ha denne i gameWon() eller her, hvis den er i gameWon blir players addet hver gang vi tester
             leaderBoard.setVisible(true);
             Text text = new Text(game.getLeaderBoard().printLeaderboard());
             leaderBoard.setContent(text);
@@ -206,7 +207,7 @@ public class MasterMindController {
             validname.setText("");
         }
          catch(Exception e){
-             validname.setText("Kun fornavn, og navnet kan kun inneholde bokstaver!");
+             validname.setText("Brukernavnet må være under 26 bokstaver langt, og ikke inneholde mellomrom eller spesialtegn!");
          }
         
     }

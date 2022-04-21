@@ -94,6 +94,7 @@ public class LeaderBoard implements ILeaderBoard{
         lb.write2file(p1);
         lb.write2file(p2);
         System.out.println(lb.getListOfPlayers());
+        lb.initializeLeaderboard();
         // Player p3 = new Player("Trine", 2, 9);
         // lb.write2file(p3);
         // Player p4 = new Player("Osvald", 2, 8);

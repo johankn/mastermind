@@ -136,7 +136,7 @@ public class MasterMindGame {
         this.player.setDiffTime((int)(endTime - startTime)/1000);
         this.player.setScore(this.submitCounter);
         this.player.setName(name);
-        this.LeaderBoard.write2file(this.player);
+        //this.LeaderBoard.write2file(this.player);
         
     }
 
