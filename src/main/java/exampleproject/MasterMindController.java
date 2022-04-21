@@ -1,20 +1,15 @@
 package exampleproject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
@@ -89,7 +84,6 @@ public class MasterMindController {
 
     private MasterMindGame game;
 
-//initialiserer det som skjer når man starter appen
     @FXML
     public void initialize(){
         this.game = new MasterMindGame();
@@ -144,7 +138,6 @@ public class MasterMindController {
          feedBacks.add(FB6);
 
     }
-//hva som skjer når man trykker på fargene
 
     public void handleButtonClickColor(ActionEvent event){
     choose4.setText("");
@@ -226,25 +219,5 @@ public class MasterMindController {
             circle.setFill(javafx.scene.paint.Color.WHITE);
         }
     }
-    
-
-    // public void handleButtonClickRestart(){
-    //     this.circles = new ArrayList<>();
-
-    //     this.rowTwo = new ArrayList<>();
-    //     this.rowThree = new ArrayList<>();
-    //     this.rowFour = new ArrayList<>();
-    //     this.rowFive = new ArrayList<>();
-    //     this.rowSix = new ArrayList<>();
-    //     this.rowSeven = new ArrayList<>();
-
-    //     this.listOfRows = new ArrayList<ArrayList<Circle>>();
-    //     this.feedBacks = new ArrayList<>();
-
-    //     this.game = new MasterMindGame();
-    //     initialize();
-
-
-    // }
-
+   
 }
