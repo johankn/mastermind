@@ -36,7 +36,7 @@ public class Player implements Comparable<Player>{
             this.name = name;
         }
         else {
-            throw new IllegalArgumentException("Navn kan kun inneholde bokstaver og tall om må være kortere enn 26 bokstaver");
+            throw new IllegalArgumentException("Navn kan kun inneholde bokstaver og tall og må være kortere enn 26 bokstaver");
         }
     }
 
@@ -50,12 +50,8 @@ public class Player implements Comparable<Player>{
         if (name.length() > 26) {
             return false;
         }
-        if (!(Pattern.matches("[a-zA-Z0-9]", name))) {
-            return false;
-        }
-        else {
-            return true;
-        }
+        
+        return name.matches("[A-Za-z0-9]*");
     }
 
     public String getName() {
@@ -69,6 +65,7 @@ public class Player implements Comparable<Player>{
     public int getDiffTime() {
         return diffTime;
     }
+    
 
     public void setDiffTime(int diffTime) {
         this.diffTime = diffTime;
@@ -90,14 +87,12 @@ public class Player implements Comparable<Player>{
     }
 
     public static void main(String[] args) {
-       Player p1 = new Player("Per", 10, 120);
-       Player p2 = new Player("Pål", 15, 18);
-       Player p3 = new Player("Line", 2, 12);
-       ArrayList<Player> X = new ArrayList<Player>(Arrays.asList(p1, p2, p3));
-       System.out.println(X);
-       Collections.sort(X);
-       System.out.println(X);
-    
+       Player p1 = new Player();
+       p1.setName("Jonny");
+    //    p1.setDiffTime(23);
+    //    p1.setScore(3);
+    System.out.println(p1);
+       
         
 
         

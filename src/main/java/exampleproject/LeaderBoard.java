@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class LeaderBoard {
+public class LeaderBoard implements ILeaderBoard{
 
     int numberOfPlayers;
     private List<Player> players;
@@ -29,7 +29,8 @@ public class LeaderBoard {
 
     public String printLeaderboard(){
         try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){ 
-            String topPlayers = liste.collect(Collectors.joining("\n"));
+            String topPlayers = liste.map(x -> x.split(" ")[0] + "\n" + " - Guesses: " + x.split(" ")[1] +"\n" +" - Time: " + x.split(" ")[2]+"s" + "\n").
+            collect(Collectors.joining("\n"));
             return topPlayers;
             
         }
@@ -39,7 +40,7 @@ public class LeaderBoard {
 
         return("could not load leaderboard");
     }
-
+    @Override
     public List<Player> getListOfPlayers(){
         try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){
             this.players = liste.map(p -> new Player(p.split(" ")[0], Integer.parseInt(p.split(" ")[1]), 
@@ -47,10 +48,6 @@ public class LeaderBoard {
 
         }
 
-        // try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){ 
-        //     players = liste.map(x -> new Player(x.split(" ")[0], Integer.parseInt(x.split(" ")[1], Integer.parseInt(x.split(" ")[2]))
-        //     .collect(Collectors.toList());
-        // }
         catch (IOException e) {
             e.printStackTrace();
         }
@@ -58,7 +55,7 @@ public class LeaderBoard {
         return new ArrayList<>(players);
 
     }
-
+    @Override
     public void write2file(Player p) {
 
         players = this.getListOfPlayers();
@@ -83,11 +80,14 @@ public class LeaderBoard {
         Player p2 = new Player("peter", 6, 24);
         lb.write2file(p1);
         lb.write2file(p2);
-        Player p3 = new Player("Trine", 2, 9);
-        lb.write2file(p3);
-        Player p4 = new Player("Osvald", 2, 8);
-        lb.write2file(p4);
-        lb.printLeaderboard();
+        System.out.println(lb.getListOfPlayers());
+        // Player p3 = new Player("Trine", 2, 9);
+        // lb.write2file(p3);
+        // Player p4 = new Player("Osvald", 2, 8);
+        // lb.write2file(p4);
+        // lb.printLeaderboard();
+
+        
         
         
         
@@ -103,6 +103,8 @@ public class LeaderBoard {
         
         
     }
+
+    
 
 
 

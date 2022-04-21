@@ -14,14 +14,15 @@ public class MasterMindGame {
     private List<String> tryList = new ArrayList<String>();
     private long startTime;
     private long endTime;
-    private Player player;
+    private Player player = new Player();
     private boolean gameLost = false;
     private boolean gameWon = false;
+    private LeaderBoard LeaderBoard = new LeaderBoard();
 
     public MasterMindGame() {
         this.generateFasit();
+        this.startTime = System.currentTimeMillis(); //når bruker starter appen starter tiden
         System.out.println(fasit);
-        this.startTime = System.currentTimeMillis();
     }
 
     public boolean isGameWon() {
@@ -77,8 +78,8 @@ public class MasterMindGame {
         }
         else{
             this.gameWon = true;
-            return "You won the game!";
-
+            this.endTime = System.currentTimeMillis();
+            return "Correct!";
         }
     }
 
@@ -124,15 +125,19 @@ public class MasterMindGame {
         return gameLost;
     }
 
-    public void gameLost() {
-        this.gameLost = true;
-        
+    public Player getPlayer() {
+        return player;
     }
-    public void gameWon(){
-        //this.gameOver = true;
-        //this.endTime = System.currentTimeMillis();
-        //player.setDiffTime((int)(endTime - startTime)/1000);
-        //System.out.println(player.getDiffTime());
+    public LeaderBoard getLeaderBoard() {
+        return LeaderBoard;
+    }
+
+    public void gameWon(String name){
+        this.player.setDiffTime((int)(endTime - startTime)/1000);
+        this.player.setScore(this.submitCounter);
+        this.player.setName(name);
+        this.LeaderBoard.write2file(this.player);
+        
     }
 
     public void submit(){
@@ -141,12 +146,16 @@ public class MasterMindGame {
         this.compareRows();
         this.tryList = new ArrayList<>();
         if ((submitCounter == 6)&&(this.isGameWon()==false)){
-            this.gameLost();
+            this.gameLost = true;
         }
         else if (this.gameWon==true){
-            this.gameWon();
+            this.gameWon = true;
         }
     }
 
-    
+    public static void main(String[] args) {
+        Player p1 = new Player();
+        p1.setName("Jonny");
+        System.out.println(p1);
+    }
 }

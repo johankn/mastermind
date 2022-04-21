@@ -9,13 +9,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 
 public class MasterMindController {
     @FXML Pane masterPane;
+
+    @FXML Pane popUp;
+    @FXML TextField textfield;
+    @FXML Button submitName;
+    @FXML Label validname;
 
     @FXML Circle labelOne_1;
     @FXML Circle labelOne_2;
@@ -61,7 +70,7 @@ public class MasterMindController {
     @FXML Label FB5;
     @FXML Label FB6;
 
-    @FXML Label leaderBoard;
+    @FXML ScrollPane leaderBoard;
 
     @FXML Label lostGame;
 
@@ -77,8 +86,6 @@ public class MasterMindController {
     private ArrayList<ArrayList<Circle>> listOfRows = new ArrayList<ArrayList<Circle>>();
 
     private ArrayList<Label> feedBacks = new ArrayList<>();
-
-    private LeaderBoard LeaderBoard = new LeaderBoard();
 
     private MasterMindGame game;
 
@@ -168,7 +175,9 @@ public class MasterMindController {
             updateRow(listOfRows.get(game.getSubmitCounter()));
             game.submit();
             if (game.isGameWon()==true){
-                leaderBoard.setText(LeaderBoard.printLeaderboard());
+                popUp.setVisible(true);
+                popUp.setDisable(false);
+
             }
             else if (game.isGameLost()==true){
                 masterPane.setVisible(false);
@@ -190,6 +199,23 @@ public class MasterMindController {
         game.setTryList(new ArrayList<>());
 
     }
+    }
+    public void handleButtonClickSubmitName(){
+        try{
+            String name = textfield.getText();
+            System.out.println(name);
+            game.gameWon(name);
+            leaderBoard.setVisible(true);
+            Text text = new Text(game.getLeaderBoard().printLeaderboard());
+            leaderBoard.setContent(text);
+            submitName.setVisible(false);
+            System.out.println(game.getPlayer());
+            validname.setText("");
+        }
+         catch(Exception e){
+             validname.setText("Kun fornavn, og navnet kan kun inneholde bokstaver!");
+         }
+        
     }
     private void updateRow(ArrayList<Circle> x){
         for (int i = 0; i < x.size(); i++) {
