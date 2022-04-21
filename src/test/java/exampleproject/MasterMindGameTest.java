@@ -29,7 +29,16 @@ public class MasterMindGameTest {
         
         
 		Assertions.assertEquals(Arrays.asList("RED", "GREEN", "BLUE", "BLACK"), game.getTryList());
-        Assertions.assertEquals("Right color and place: 0\nRight color but wrong place: 2", game.compareRows());
+        // Assertions.assertEquals("Right color and place: 0\nRight color but wrong place: 2", game.compareRows());
 		
     }
+    @Test
+    void testSubmit(){
+        game.submit();
+        Assertions.assertEquals(1, game.getSubmitCounter());
+        
+    }
+
+
+
 }

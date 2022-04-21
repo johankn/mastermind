@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class MasterMindGame {
 
-    private int counter = -1;
-    private int submitCounter = 0;
+    private int counter = -1; //må starte på -1 for at første indeks blir null når man trykker på en knapp
+    private int submitCounter = 0; //antall forsøk, og hvilken label som skal få tilbakemld
     private List<String> fasit = new ArrayList<String>();
     private List<String> tryList = new ArrayList<String>();
     private long startTime;
