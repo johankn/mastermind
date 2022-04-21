@@ -1,6 +1,7 @@
 package exampleproject;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,6 +18,18 @@ public class LeaderBoard implements ILeaderBoard{
 
     int numberOfPlayers;
     private List<Player> players;
+
+    public LeaderBoard(){
+        File lb = new File("LeaderBoard.txt");
+        try {
+            lb.createNewFile();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        
+    }
 
      void initializeLeaderboard(){
         try (PrintWriter writer = new PrintWriter("LeaderBoard.txt")) {
