@@ -36,9 +36,13 @@ public class MasterMindGameTest {
     void testSubmit(){
         game.submit();
         Assertions.assertEquals(1, game.getSubmitCounter());
+        Assertions.assertEquals(-1, game.getCounter());
+
+    }
+    
+    @Test
+    void testGenerateFasit(){
         
     }
-
-
 
 }
