@@ -47,7 +47,7 @@ public class Player implements Comparable<Player>{
 
 
     private boolean isValidName(String name) {
-        if (name.length() > 26) {
+        if ((name.length() > 26)||(name.length() < 1)) {
             return false;
         }
         
