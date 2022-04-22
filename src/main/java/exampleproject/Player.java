@@ -29,8 +29,7 @@ public class Player implements Comparable<Player>{
     }
 
 
-    //Skal man ha illegalArgumentExeptions, hvordan ellers validerer man?
-
+    
     public void setName(String name) {
         if (this.isValidName(name)) {
             this.name = name;

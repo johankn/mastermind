@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 
 public class LeaderBoard implements ILeaderBoard{
 
-    int numberOfPlayers;
+    private int numberOfPlayers; //skal vi ha denne?
     private List<Player> players;
 
     public LeaderBoard(){
@@ -31,7 +31,7 @@ public class LeaderBoard implements ILeaderBoard{
         
     }
 
-     void initializeLeaderboard(){
+    private void initializeLeaderboard(){
         try (PrintWriter writer = new PrintWriter("LeaderBoard.txt")) {
             writer.print("");
         } 
