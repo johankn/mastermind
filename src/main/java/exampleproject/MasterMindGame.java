@@ -173,7 +173,6 @@ public class MasterMindGame {
     this.player = new Player();
     this.gameLost = false;
     this.gameWon = false;
-    this.LeaderBoard = new LeaderBoard();
     }
 
     public static void main(String[] args) {

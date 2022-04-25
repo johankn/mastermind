@@ -38,7 +38,7 @@ public class MasterMindGameTest {
         game.submit();
         Assertions.assertEquals(1, game.getSubmitCounter());
         Assertions.assertEquals(-1, game.getCounter());
-        
+
 
     }
     
@@ -54,6 +54,18 @@ public class MasterMindGameTest {
         game.gameWon("Ola");
         Assertions.assertEquals("Ola", (game.getPlayer().getName()));
         Assertions.assertEquals(0, (game.getPlayer().getScore()));  
+    }
+    @Test
+    void testResetGame(){
+        game.resetGame();
+        Assertions.assertEquals(-1, game.getCounter());
+        Assertions.assertEquals(0, game.getSubmitCounter());
+        Assertions.assertFalse(game.isGameWon());
+        Assertions.assertFalse(game.isGameLost());
+        Assertions.assertEquals(0, game.getTryList().size());
+        testGenerateFasit();
+        Assertions.assertEquals("ukjent spiller 0 0", game.getPlayer().toString());
+        
     }
 
     
