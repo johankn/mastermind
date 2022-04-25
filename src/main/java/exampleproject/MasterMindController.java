@@ -85,7 +85,7 @@ public class MasterMindController {
     private MasterMindGame game;
 
     @FXML
-    public void initialize(){
+    private void initialize(){
         this.game = new MasterMindGame();
 
         circles.add(labelOne_1);
@@ -196,7 +196,7 @@ public class MasterMindController {
     public void handleButtonClickSubmitName(){
         try{
             String name = textfield.getText();
-            System.out.println(name);
+            //System.out.println(name);
             game.gameWon(name);
             game.getLeaderBoard().write2file(game.getPlayer()); //kan enten ha denne i gameWon() eller her, hvis den er i gameWon blir players addet hver gang vi tester
             leaderBoard.setVisible(true);

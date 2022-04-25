@@ -34,7 +34,7 @@ public class Player implements Comparable<Player>{
         if (this.isValidName(name)) {
             this.name = name;
         }
-        else {
+        else{
             throw new IllegalArgumentException("Navn kan kun inneholde bokstaver og tall og må være kortere enn 26 bokstaver");
         }
     }

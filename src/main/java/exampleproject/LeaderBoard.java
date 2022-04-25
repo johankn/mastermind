@@ -31,7 +31,7 @@ public class LeaderBoard implements ILeaderBoard{
         
     }
 
-    private void initializeLeaderboard(){
+    private void initializeLeaderboard(){ //hvis man vil slette og starte på nytt leaderboard
         try (PrintWriter writer = new PrintWriter("LeaderBoard.txt")) {
             writer.print("");
         } 
@@ -53,6 +53,8 @@ public class LeaderBoard implements ILeaderBoard{
 
         return("could not load leaderboard");
     }
+
+
     @Override
     public List<Player> getListOfPlayers(){
         try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){
@@ -94,7 +96,7 @@ public class LeaderBoard implements ILeaderBoard{
         lb.write2file(p1);
         lb.write2file(p2);
         System.out.println(lb.getListOfPlayers());
-        lb.initializeLeaderboard();
+        //lb.initializeLeaderboard();
         // Player p3 = new Player("Trine", 2, 9);
         // lb.write2file(p3);
         // Player p4 = new Player("Osvald", 2, 8);
