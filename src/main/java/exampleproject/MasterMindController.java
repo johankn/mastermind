@@ -171,6 +171,7 @@ public class MasterMindController {
             if (game.isGameWon()==true){
                 popUp.setVisible(true);
                 popUp.setDisable(false);
+                submitName.setVisible(true);
 
             }
             else if (game.isGameLost()==true){

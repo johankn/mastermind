@@ -173,7 +173,7 @@
             </ScrollPane>
          </children>
       </Pane>
-      <Button fx:id="resetGame" layoutX="10.0" layoutY="615.0" mnemonicParsing="false" onAction="#handleButtonClickReset" style="-fx-background-color: indianred;" text="Reset game" wrapText="true">
+      <Button fx:id="resetGame" layoutX="500.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleButtonClickReset" style="-fx-background-color: indianred;" text="Reset game" wrapText="true">
          <font>
             <Font size="14.0" />
          </font></Button>
