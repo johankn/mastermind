@@ -22,14 +22,19 @@ public class MasterMindGameTest {
     // }
 
     @Test
-    void testCompare(){ //vanskelig å teste en random fasit som genererer ny hver gang game kjøres
+    void testAddColor(){ //vanskelig å teste en random fasit som genererer ny hver gang game kjøres
         
         // this.fasit.addAll(Arrays.asList("BLUE","RED","BLACK","GREEN"));
-        game.setTryList(Arrays.asList("RED", "GREEN", "BLUE", "BLACK"));
+        // game.setTryList(Arrays.asList("RED", "GREEN", "BLUE", "BLACK"));
         
-        
+        game.addColor("RED");
+        game.addColor("GREEN");
+        game.addColor("BLUE");
+        game.addColor("BLACK");
         
 		Assertions.assertEquals(Arrays.asList("RED", "GREEN", "BLUE", "BLACK"), game.getTryList());
+        game.setTryList(new ArrayList<>());
+        Assertions.assertEquals("[]", game.getTryList().toString());
         // Assertions.assertEquals("Right color and place: 0\nRight color but wrong place: 2", game.compareRows());
 		
     }
@@ -38,8 +43,9 @@ public class MasterMindGameTest {
         game.submit();
         Assertions.assertEquals(1, game.getSubmitCounter());
         Assertions.assertEquals(-1, game.getCounter());
-
-
+        game.setSubmitCounter(5);
+        game.submit();
+        Assertions.assertTrue(game.isGameLost());
     }
     
     @Test
@@ -54,6 +60,7 @@ public class MasterMindGameTest {
         game.gameWon("Ola");
         Assertions.assertEquals("Ola", (game.getPlayer().getName()));
         Assertions.assertEquals(0, (game.getPlayer().getScore()));  
+
     }
     @Test
     void testResetGame(){
@@ -65,7 +72,7 @@ public class MasterMindGameTest {
         Assertions.assertEquals(0, game.getTryList().size());
         testGenerateFasit();
         Assertions.assertEquals("ukjent spiller 0 0", game.getPlayer().toString());
-        
+
     }
 
     

@@ -125,7 +125,9 @@ public class MasterMindGame {
     }
 
     public void addColor(String color){
-        this.tryList.add(color);
+        List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
+        if ((this.tryList.size()<4)&&(validColors.contains(color))){
+        this.tryList.add(color);}
     }
 
 
