@@ -39,6 +39,11 @@ public class MasterMindGameTest {
 		
     }
     @Test
+    void testCompareRows(){
+        
+    }
+
+    @Test
     void testSubmit(){
         game.submit();
         Assertions.assertEquals(1, game.getSubmitCounter());
