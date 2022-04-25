@@ -86,7 +86,10 @@ public class MasterMindGame {
     
 
     public List<String> getTryList() {
-        return tryList;
+        //return this.tryList;
+        //System.out.println(this.tryList);
+        return new ArrayList<String>(this.tryList);
+    
     }
 
     public void setTryList(List<String> tryList) {
@@ -117,7 +120,12 @@ public class MasterMindGame {
     }
 
     public List<String> getFasit() {
-        return this.fasit;
+        //return this.fasit;
+        return new ArrayList<String>(this.fasit);
+    }
+
+    public void addColor(String color){
+        this.tryList.add(color);
     }
 
 
@@ -151,6 +159,21 @@ public class MasterMindGame {
         else if (this.gameWon==true){
             this.gameWon = true;
         }
+    }
+    public void resetGame(){
+        
+    this.counter = -1; //må starte på -1 for at første indeks blir null når man trykker på en knapp
+    this.submitCounter = 0; //antall forsøk, og hvilken label som skal få tilbakemld
+    this.fasit = new ArrayList<String>();
+    this.tryList = new ArrayList<String>();
+    this.generateFasit();
+        this.startTime = System.currentTimeMillis(); //når bruker starter appen starter tiden
+        System.out.println(fasit);
+    
+    this.player = new Player();
+    this.gameLost = false;
+    this.gameWon = false;
+    this.LeaderBoard = new LeaderBoard();
     }
 
     public static void main(String[] args) {

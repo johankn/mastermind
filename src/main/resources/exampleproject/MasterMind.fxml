@@ -166,12 +166,16 @@
                   <Button fx:id="submitName" layoutX="272.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleButtonClickSubmitName" text="Submit" />
                   <Label fx:id="validname" layoutX="18.0" layoutY="124.0" prefHeight="35.0" prefWidth="315.0" wrapText="true" />
                </children></Pane>
-            <ScrollPane fx:id="leaderBoard" visible="false" layoutX="370.0" layoutY="416.0" prefHeight="253.0" prefWidth="233.0">
+            <ScrollPane fx:id="leaderBoard" layoutX="370.0" layoutY="416.0" prefHeight="253.0" prefWidth="233.0" visible="false">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
               </content>
             </ScrollPane>
          </children>
       </Pane>
+      <Button fx:id="resetGame" layoutX="10.0" layoutY="615.0" mnemonicParsing="false" onAction="#handleButtonClickReset" style="-fx-background-color: indianred;" text="Reset game" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
    </children>
 </Pane>

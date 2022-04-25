@@ -22,10 +22,11 @@ public class MasterMindGameTest {
     // }
 
     @Test
-    void testCompare(){
+    void testCompare(){ //vanskelig å teste en random fasit som genererer ny hver gang game kjøres
+        
         // this.fasit.addAll(Arrays.asList("BLUE","RED","BLACK","GREEN"));
         game.setTryList(Arrays.asList("RED", "GREEN", "BLUE", "BLACK"));
-        System.out.println(game.getFasit());
+        
         
         
 		Assertions.assertEquals(Arrays.asList("RED", "GREEN", "BLUE", "BLACK"), game.getTryList());
@@ -37,6 +38,7 @@ public class MasterMindGameTest {
         game.submit();
         Assertions.assertEquals(1, game.getSubmitCounter());
         Assertions.assertEquals(-1, game.getCounter());
+        
 
     }
     
@@ -51,9 +53,10 @@ public class MasterMindGameTest {
     void testGameWon(){
         game.gameWon("Ola");
         Assertions.assertEquals("Ola", (game.getPlayer().getName()));
-        Assertions.assertEquals(0, (game.getPlayer().getScore()));
-
-        
+        Assertions.assertEquals(0, (game.getPlayer().getScore()));  
     }
+
+    
+
 
 }

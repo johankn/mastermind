@@ -44,7 +44,7 @@ public class LeaderBoard implements ILeaderBoard{
         try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){ 
             String topPlayers = liste.map(x -> x.split(" ")[0] + "\n" + " - Guesses: " + x.split(" ")[1] +"\n" +" - Time: " + x.split(" ")[2]+"s" + "\n").
             collect(Collectors.joining("\n"));
-            return topPlayers;
+            return "Leaderboard \n\n" +topPlayers;
             
         }
         catch (IOException e) {

@@ -146,7 +146,8 @@ public class MasterMindController {
         Button clicked = (Button) activatedButton;
         String colour = clicked.getId();
 
-        game.getTryList().add(colour);
+        game.addColor(colour);
+        //System.out.println(game.getTryList());
 
         Color x = Color.web(colour);
 
@@ -207,7 +208,7 @@ public class MasterMindController {
             validname.setText("");
         }
          catch(Exception e){
-             validname.setText("Brukernavnet må være under 26 bokstaver langt, og ikke inneholde mellomrom eller spesialtegn!");
+             validname.setText("The username must be less than 26 letters long, and must not contain spaces or special characters!");
          }
         
     }
@@ -216,6 +217,26 @@ public class MasterMindController {
             x.get(i).setFill(circles.get(i).getFill());
         }
 
+        for (Circle circle : circles) {
+            circle.setFill(javafx.scene.paint.Color.WHITE);
+        }
+    }
+
+    public void handleButtonClickReset(){
+        game.resetGame();
+        leaderBoard.setVisible(false);
+        masterPane.setVisible(true);
+        lostGame.setVisible(false);
+        popUp.setVisible(false);
+                popUp.setDisable(true);
+        for (int i = 0; i < listOfRows.size(); i++) {
+            for (int j = 0; j < rowSeven.size(); j++) {
+                listOfRows.get(i).get(j).setFill(javafx.scene.paint.Color.WHITE);
+            }
+        }
+        for (int i = 0; i < feedBacks.size(); i++) {
+            feedBacks.get(i).setText("");
+        }
         for (Circle circle : circles) {
             circle.setFill(javafx.scene.paint.Color.WHITE);
         }
