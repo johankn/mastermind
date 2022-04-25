@@ -229,6 +229,8 @@ public class MasterMindController {
         masterPane.setVisible(true);
         lostGame.setVisible(false);
         popUp.setVisible(false);
+        textfield.setText("");
+        textfield.setPromptText("Enter a username"); 
                 popUp.setDisable(true);
         for (int i = 0; i < listOfRows.size(); i++) {
             for (int j = 0; j < rowSeven.size(); j++) {
