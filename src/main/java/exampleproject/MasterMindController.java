@@ -144,12 +144,12 @@ public class MasterMindController {
         if (game.getCounter()<3){
         Button activatedButton = (Button) event.getSource();
         Button clicked = (Button) activatedButton;
-        String colour = clicked.getId();
+        String color = clicked.getId();
 
-        game.addColor(colour);
+        game.addColor(color);
         //System.out.println(game.getTryList());
 
-        Color x = Color.web(colour);
+        Color x = Color.web(color);
 
         //dette er åpenbart tatt fra stackOverflow^^^
 
