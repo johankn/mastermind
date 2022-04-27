@@ -84,9 +84,12 @@ public class MasterMindController {
 
     private MasterMindGame game;
 
+    private generateRandomFasit randomFasit = new generateRandomFasit();
+
+
     @FXML
     private void initialize(){
-        this.game = new MasterMindGame();
+        this.game = new MasterMindGame(randomFasit);
 
         circles.add(labelOne_1);
         circles.add(labelOne_2);
@@ -224,7 +227,7 @@ public class MasterMindController {
     }
 
     public void handleButtonClickReset(){
-        game.resetGame();
+        game.resetGame(randomFasit);
         leaderBoard.setVisible(false);
         masterPane.setVisible(true);
         lostGame.setVisible(false);

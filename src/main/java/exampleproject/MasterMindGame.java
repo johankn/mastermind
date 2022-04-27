@@ -18,9 +18,12 @@ public class MasterMindGame {
     private boolean gameLost = false;
     private boolean gameWon = false;
     private LeaderBoard LeaderBoard = new LeaderBoard();
+    private IGenerateFasit fasitGenerator;
+    
 
-    public MasterMindGame() {
-        this.generateFasit();
+    public MasterMindGame(IGenerateFasit fasitGenerator) {
+        this.fasitGenerator = fasitGenerator;
+        this.fasit = this.fasitGenerator.generateFasit();
         this.startTime = System.currentTimeMillis(); //når bruker starter appen starter tiden
         System.out.println(fasit);
     }
@@ -29,16 +32,7 @@ public class MasterMindGame {
         return gameWon;
     }
 
-    private void generateFasit() {
-        List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
-        int numberOfElements = 4;
-        Random rand = new Random();
-        
-         for (int i = 0; i < numberOfElements; i++) {
-            int randomIndex = rand.nextInt((validColors).size());
-            fasit.add(validColors.get(randomIndex));
-        }
-    }
+    
 
     //sammenligner fasiten med raden brukeren laget
     public String compareRows(){
@@ -162,13 +156,13 @@ public class MasterMindGame {
             this.gameWon = true;
         }
     }
-    public void resetGame(){
+    public void resetGame(IGenerateFasit fasitGenerator){
         
     this.counter = -1; //må starte på -1 for at første indeks blir null når man trykker på en knapp
     this.submitCounter = 0; //antall forsøk, og hvilken label som skal få tilbakemld
     this.fasit = new ArrayList<String>();
     this.tryList = new ArrayList<String>();
-    this.generateFasit();
+    this.fasit = fasitGenerator.generateFasit();
         this.startTime = System.currentTimeMillis(); //når bruker starter appen starter tiden
         System.out.println(fasit);
     
