@@ -16,9 +16,11 @@ public class PlayerTest {
     
     @Test
     void testValidUserName(){
-        Assertions.assertThrows(IllegalArgumentException.class, ()-> p1.setName("Bob 98 v"));
-        Assertions.assertThrows(IllegalArgumentException.class, ()-> p1.setName("ijhkdshsdkldkjahflkadjhlakdjfjfhdskjf"));
-        Assertions.assertDoesNotThrow(()->p1.setName("ijhkdshs"));
+        Assertions.assertThrows(IllegalArgumentException.class, ()-> p1.setName("Bob 98 v"), "feil for mellomrom "); 
+        Assertions.assertThrows(IllegalArgumentException.class, ()-> p1.setName("ijhkdshsdkldkjahflkadjhlakdjfjfhdskjf"), "feil for for langt usernam"); 
+        Assertions.assertThrows(IllegalArgumentException.class, ()-> p1.setName("johan$$$gg"), "feil for spesialtegn"); 
+        Assertions.assertThrows(IllegalArgumentException.class, ()-> p1.setName(""), "feil for tom streng");
+        Assertions.assertDoesNotThrow(()->p1.setName("johan99"), "kun tall og bokstaver, ingen mellomrom og under 26 bokstaver er godkjent");
     }
     @Test
     void testComparePlayers(){

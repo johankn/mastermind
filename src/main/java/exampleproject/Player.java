@@ -6,9 +6,9 @@ public class Player implements Comparable<Player>{
 
     //enkel klasse som lagrer navn og poengsum
 
-    private String name = "ukjent spiller";
-    private int score = 0;
-    private int diffTime = 0;
+    private String name;
+    private int score;
+    private int diffTime;
 
     public Player(){
 

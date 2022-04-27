@@ -85,7 +85,9 @@ public class MasterMindGame {
     }
 
     public void setTryList(List<String> tryList) {
-        this.tryList = tryList;
+        List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
+        if ((tryList.size()<=4)&&(validColors.containsAll(tryList))){
+        this.tryList = tryList;}
     }
 
     public int getCounter() {
@@ -103,11 +105,16 @@ public class MasterMindGame {
         return new ArrayList<String>(this.fasit);
     }
 
+    public long getStartTime() {
+        return this.startTime;
+    }
+
     public void addColor(String color){
-        this.counter += 1;
         List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
         if ((this.tryList.size()<4)&&(validColors.contains(color))){
-        this.tryList.add(color);}
+        this.tryList.add(color);
+        this.counter += 1;
+    }
     }
 
 
@@ -126,7 +133,7 @@ public class MasterMindGame {
         this.player.setDiffTime((int)(endTime - startTime)/1000);
         this.player.setScore(this.submitCounter);
         this.player.setName(name);
-        //this.LeaderBoard.write2file(this.player);
+        //this.LeaderBoard.write2file(this.player); //hvis vi har denne her blir det skrevet til fil i testene for gameWon()
         
     }
 
