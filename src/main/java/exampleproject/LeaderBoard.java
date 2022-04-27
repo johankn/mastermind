@@ -29,7 +29,7 @@ public class LeaderBoard implements ILeaderBoard{
         } 
     }
 
-    private void initializeLeaderboard(){ //hvis man vil slette og starte på nytt leaderboard
+    void initializeLeaderboard(){ //hvis man vil slette og starte på nytt leaderboard
         try (PrintWriter writer = new PrintWriter(this.filename)) {
             writer.print("");
         } 
@@ -80,16 +80,6 @@ public class LeaderBoard implements ILeaderBoard{
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    
-
-    public List<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(List<Player> players) {
-        this.players = players;
     }
 
     public String getFilename() {

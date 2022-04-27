@@ -108,6 +108,9 @@ public class MasterMindGame {
     public long getStartTime() {
         return this.startTime;
     }
+    public long getEndTime() {
+        return this.endTime;
+    }
 
     public void addColor(String color){
         List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
@@ -145,9 +148,7 @@ public class MasterMindGame {
         if ((submitCounter == 6)&&(this.isGameWon()==false)){
             this.gameLost = true;
         }
-        else if (this.gameWon==true){
-            this.gameWon = true;
-        }
+        
     }
     public void resetGame(IGenerateFasit fasitGenerator){
         

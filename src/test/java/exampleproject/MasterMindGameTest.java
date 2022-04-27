@@ -37,13 +37,16 @@ public class MasterMindGameTest {
         game.setTryList(new ArrayList<>());
         Assertions.assertEquals("[]", game.getTryList().toString());
 
+        game.setCounter(-1);
         game.addColor("RED");
         game.addColor("GREEN");
         game.addColor("ORANGE");
         game.addColor("PINK");
 
         Assertions.assertEquals(2, game.getTryList().size());
-        Assertions.assertEquals(5, game.getCounter());
+        Assertions.assertFalse(game.getTryList().contains("ORANGE"));
+        Assertions.assertFalse(game.getTryList().contains("PINK"));
+        Assertions.assertEquals(1, game.getCounter());
         
 		
     }
@@ -66,6 +69,7 @@ public class MasterMindGameTest {
         game.compareRows();
         Assertions.assertEquals("Correct!", game.compareRows());
         Assertions.assertTrue(game.isGameWon());
+        Assertions.assertEquals((System.currentTimeMillis()/1000), (game.getEndTime()/1000));
 
 
 
@@ -74,9 +78,12 @@ public class MasterMindGameTest {
     @Test
     void testSubmit(){
         MasterMindGame game = new MasterMindGame(constantFasit);
+        game.setTryList(Arrays.asList("BLUE","BLACK","BLACK","BLACK"));
+        Assertions.assertEquals("[BLUE, BLACK, BLACK, BLACK]", game.getTryList().toString());
         game.submit();
         Assertions.assertEquals(1, game.getSubmitCounter());
         Assertions.assertEquals(-1, game.getCounter());
+        Assertions.assertEquals("[]", game.getTryList().toString());
         game.submit();
         game.submit();
         game.submit();
@@ -104,6 +111,7 @@ public class MasterMindGameTest {
         game.gameWon("Ola");
         Assertions.assertEquals("Ola", (game.getPlayer().getName()));
         Assertions.assertEquals(1, (game.getPlayer().getScore()));  
+        Assertions.assertEquals(game.getSubmitCounter(), game.getPlayer().getScore());
 
     }
     @Test
