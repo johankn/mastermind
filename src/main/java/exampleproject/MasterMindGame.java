@@ -80,22 +80,12 @@ public class MasterMindGame {
     
 
     public List<String> getTryList() {
-        //return this.tryList;
-        //System.out.println(this.tryList);
         return new ArrayList<String>(this.tryList);
     
     }
 
     public void setTryList(List<String> tryList) {
         this.tryList = tryList;
-    }
-
-    public void counterPlusOne() {
-        this.counter += 1;
-    }
-
-    public void submitCounterPlusOne() {
-        this.submitCounter += 1;
     }
 
     public int getCounter() {
@@ -109,16 +99,12 @@ public class MasterMindGame {
         return submitCounter;
     }
 
-    public void setSubmitCounter(int submitCounter) {
-        this.submitCounter = submitCounter;
-    }
-
     public List<String> getFasit() {
-        //return this.fasit;
         return new ArrayList<String>(this.fasit);
     }
 
     public void addColor(String color){
+        this.counter += 1;
         List<String> validColors = Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE");
         if ((this.tryList.size()<4)&&(validColors.contains(color))){
         this.tryList.add(color);}

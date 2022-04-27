@@ -156,7 +156,6 @@ public class MasterMindController {
 
         //dette er åpenbart tatt fra stackOverflow^^^
 
-        game.counterPlusOne();
         (circles.get(game.getCounter())).setFill(x);
     }
     else{
@@ -179,6 +178,7 @@ public class MasterMindController {
             }
             else if (game.isGameLost()==true){
                 masterPane.setVisible(false);
+                lostGame.setVisible(true);
                 lostGame.setText("You lost the game!");
             }
             

@@ -44,12 +44,21 @@ public class MasterMindGameTest {
     @Test
     void testCompareRows(){
         MasterMindGame game = new MasterMindGame(constantFasit);
-        game.addColor("RED");
-        game.addColor("GREEN");
-        game.addColor("BLUE");
-        game.addColor("BLACK");
+        //constantFasit er satt til å være ["BLUE","BLACK","YELLOW","RED"]. 
+        game.setTryList(Arrays.asList("RED","GREEN","BLUE","BLACK"));
         game.compareRows();
         Assertions.assertEquals("Right color and place: 0\nRight color but wrong place: 3", game.compareRows());
+        Assertions.assertFalse(game.isGameWon());
+
+        game.setTryList(Arrays.asList("RED","BLACK","YELLOW","BLACK"));
+        game.compareRows();
+        Assertions.assertEquals("Right color and place: 2\nRight color but wrong place: 1", game.compareRows());
+        Assertions.assertFalse(game.isGameWon());
+        
+        game.setTryList(Arrays.asList("BLUE","BLACK","YELLOW","RED"));
+        game.compareRows();
+        Assertions.assertEquals("Correct!", game.compareRows());
+        Assertions.assertTrue(game.isGameWon());
 
     }
 
@@ -65,8 +74,8 @@ public class MasterMindGameTest {
     }
     
     @Test
-    void testGenerateFasit(){
-        MasterMindGame game = new MasterMindGame(constantFasit);
+    void testGenerateRandomFasit(){
+        MasterMindGame game = new MasterMindGame(randomFasit);
         List<String> validColors = new ArrayList<String>(Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE"));
         Assertions.assertTrue(game.getFasit().stream().allMatch(x->validColors.contains(x)));
         Assertions.assertEquals(4, game.getFasit().size());
@@ -89,7 +98,6 @@ public class MasterMindGameTest {
         Assertions.assertFalse(game.isGameWon());
         Assertions.assertFalse(game.isGameLost());
         Assertions.assertEquals(0, game.getTryList().size());
-        testGenerateFasit();
         Assertions.assertEquals("ukjent spiller 0 0", game.getPlayer().toString());
 
     }
