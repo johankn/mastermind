@@ -2,7 +2,6 @@ package exampleproject;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,48 +15,42 @@ import java.util.stream.Stream;
 
 public class LeaderBoard implements ILeaderBoard{
 
-    private int numberOfPlayers; //skal vi ha denne?
     private List<Player> players;
+    private String filename;
 
-    public LeaderBoard(){
-        File lb = new File("LeaderBoard.txt");
+    public LeaderBoard(String filename){
+        this.filename = filename;
+        File lb = new File(filename);
         try {
             lb.createNewFile();
         }
         catch (IOException e) {
             e.printStackTrace();
-        }
-
-        
+        } 
     }
 
     private void initializeLeaderboard(){ //hvis man vil slette og starte på nytt leaderboard
-        try (PrintWriter writer = new PrintWriter("LeaderBoard.txt")) {
+        try (PrintWriter writer = new PrintWriter(this.filename)) {
             writer.print("");
         } 
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String printLeaderboard(){
-        try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){ 
-            String topPlayers = liste.map(x -> x.split(" ")[0] + "\n" + " - Guesses: " + x.split(" ")[1] +"\n" +" - Time: " + x.split(" ")[2]+"s" + "\n").
-            collect(Collectors.joining("\n"));
-            return "                LEADERBOARD \n\n" +topPlayers;
-            
-        }
         catch (IOException e) {
             e.printStackTrace();
         }
-
-        return("could not load leaderboard");
     }
+
+    public String printLeaderboard() throws IOException{ 
+    
+            String topPlayers = this.getListOfPlayers().stream().map(x-> x.getName() + "\n" + " - Guesses: " + x.getScore() +"\n" +" - Time: " + x.getDiffTime()+"s" + "\n").
+            collect(Collectors.joining("\n"));
+
+            return "                LEADERBOARD \n\n" +topPlayers;
+    }
+    
 
 
     @Override
     public List<Player> getListOfPlayers(){
-        try(Stream<String> liste = Files.lines(Paths.get("LeaderBoard.txt"));){
+        try(Stream<String> liste = Files.lines(Paths.get(this.filename));){
             this.players = liste.map(p -> new Player(p.split(" ")[0], Integer.parseInt(p.split(" ")[1]), 
             Integer.parseInt(p.split(" ")[2]))).collect(Collectors.toList());
 
@@ -78,52 +71,48 @@ public class LeaderBoard implements ILeaderBoard{
         Collections.sort(players);
 
 
-        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("LeaderBoard.txt", false)))) {
+        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(this.filename, false)))) {
 
             players.stream().forEach(x->pw.println(x));
             
             pw.close();
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
     public static void main(String[] args) {
-        LeaderBoard lb = new LeaderBoard();
+        LeaderBoard lb = new LeaderBoard("LeaderBoard.txt");
         Player p1 = new Player("jonny", 10, 120);
         Player p2 = new Player("peter", 6, 24);
         lb.write2file(p1);
         lb.write2file(p2);
         System.out.println(lb.getListOfPlayers());
         lb.initializeLeaderboard();
-        // Player p3 = new Player("Trine", 2, 9);
-        // lb.write2file(p3);
-        // Player p4 = new Player("Osvald", 2, 8);
-        // lb.write2file(p4);
-        // lb.printLeaderboard();
-
-        
-        
-        
-        
-        
-        
-        
-       
-
-        
-        
         
 
         
         
+        
+    
     }
-
-    
-
-
-
-
-    
 }

@@ -74,6 +74,7 @@ public class MasterMindGameTest {
 
     @Test
     void testGameWon(){
+        MasterMindGame game = new MasterMindGame(constantFasit);
         game.gameWon("Ola");
         Assertions.assertEquals("Ola", (game.getPlayer().getName()));
         Assertions.assertEquals(0, (game.getPlayer().getScore()));  
@@ -81,7 +82,8 @@ public class MasterMindGameTest {
     }
     @Test
     void testResetGame(){
-        game.resetGame();
+        MasterMindGame game = new MasterMindGame(constantFasit);
+        game.resetGame(constantFasit);
         Assertions.assertEquals(-1, game.getCounter());
         Assertions.assertEquals(0, game.getSubmitCounter());
         Assertions.assertFalse(game.isGameWon());

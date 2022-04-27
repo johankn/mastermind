@@ -17,7 +17,7 @@ public class MasterMindGame {
     private Player player = new Player();
     private boolean gameLost = false;
     private boolean gameWon = false;
-    private LeaderBoard LeaderBoard = new LeaderBoard();
+    private LeaderBoard LeaderBoard = new LeaderBoard("LeaderBoard.txt");
     private IGenerateFasit fasitGenerator;
     
 
