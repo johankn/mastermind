@@ -214,7 +214,6 @@ public class MasterMindController {
          catch(Exception e){
              validname.setText("The username must be less than 26 letters long, and must not contain spaces or special characters!");
          }
-        
     }
     private void updateRow(ArrayList<Circle> x){
         for (int i = 0; i < x.size(); i++) {

@@ -140,7 +140,6 @@ NielsBohr
  - Guesses: 2
  - Time: 97s
          """, testLeaderBoard.printLeaderboard());
-        System.out.println(testLeaderBoard.printLeaderboard());
     }
 
 

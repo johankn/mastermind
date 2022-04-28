@@ -132,7 +132,7 @@ public class MasterMindGame {
         return LeaderBoard;
     }
 
-    public void gameWon(String name){
+    public void gameWon(String name) {
         this.player.setDiffTime((int)(endTime - startTime)/1000);
         this.player.setScore(this.submitCounter);
         this.player.setName(name);
