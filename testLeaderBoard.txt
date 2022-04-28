@@ -1,3 +1,2 @@
-NielsBohr 2 97
 Heisenberg 3 49
-Gutta 5 79
+NielsBohr 2 97

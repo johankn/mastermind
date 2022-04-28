@@ -123,7 +123,7 @@ public class MasterMindGameTest {
         Assertions.assertFalse(game.isGameWon());
         Assertions.assertFalse(game.isGameLost());
         Assertions.assertEquals(Arrays.asList("BLUE","BLACK","YELLOW","RED"), game.getFasit());
-        Assertions.assertEquals("[]", game.getTryList().toString());
+        Assertions.assertEquals(Arrays.asList(), game.getTryList());
         Assertions.assertEquals(0, game.getTryList().size());
         Assertions.assertEquals("null 0 0", game.getPlayer().toString());
         Assertions.assertEquals((System.currentTimeMillis()/1000), (game.getStartTime()/1000), "sjekker om startid blir nullstilt, deler på 1000 for å få sekunder");

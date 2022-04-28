@@ -30,8 +30,9 @@ public class LeaderBoard implements ILeaderBoard{
     }
 
     void initializeLeaderboard(){ //hvis man vil slette og starte på nytt leaderboard
-        try (PrintWriter writer = new PrintWriter(this.filename)) {
+        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(this.filename)))) {
             writer.print("");
+            writer.close();
         } 
         catch (IOException e) {
             e.printStackTrace();
@@ -43,7 +44,7 @@ public class LeaderBoard implements ILeaderBoard{
             String topPlayers = this.getListOfPlayers().stream().map(x-> x.getName() + "\n" + " - Guesses: " + x.getScore() +"\n" +" - Time: " + x.getDiffTime()+"s" + "\n").
             collect(Collectors.joining("\n"));
 
-            return "                LEADERBOARD \n\n" +topPlayers;
+            return "                LEADERBOARD\n\n" +topPlayers;
     }
     
 
