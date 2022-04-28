@@ -86,8 +86,8 @@ public void testGetListOfPlayers() {
 }
 
 @Test
-@DisplayName("tester om write2file legger til spillere til filen")
-public void testWrite2File() {
+@DisplayName("tester om writePlayerToFile legger til spillere til filen")
+public void testwritePlayerToFile() {
 
     try(Stream<String> liste = Files.lines(Paths.get("testLeaderBoard.txt"));){
         String players = liste.collect(Collectors.joining(" "));
@@ -99,12 +99,12 @@ public void testWrite2File() {
     }
 
     Player player = new Player("Oppenheimer", 2, 48);
-    testLeaderBoard.write2file(player);
+    testLeaderBoard.writePlayerToFile(player);
 
 
     try(Stream<String> liste = Files.lines(Paths.get("testLeaderBoard.txt"));){
                 String players = liste.collect(Collectors.joining(" "));        
-                Assertions.assertEquals("Oppenheimer 2 48 NielsBohr 2 97 Heisenberg 3 49" , players); //ny player blir addet og liste blir sortert i write2file
+                Assertions.assertEquals("Oppenheimer 2 48 NielsBohr 2 97 Heisenberg 3 49" , players); //ny player blir addet og liste blir sortert i writePlayerToFile
 
     }
 
