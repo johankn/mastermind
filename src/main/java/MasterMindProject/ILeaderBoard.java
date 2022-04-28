@@ -1,4 +1,4 @@
-package exampleproject;
+package MasterMindProject;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

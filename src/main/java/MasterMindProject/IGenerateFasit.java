@@ -1,4 +1,4 @@
-package exampleproject;
+package MasterMindProject;
 
 import java.util.List;
 

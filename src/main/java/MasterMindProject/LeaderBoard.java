@@ -1,4 +1,4 @@
-package exampleproject;
+package MasterMindProject;
 
 import java.io.BufferedWriter;
 import java.io.File;

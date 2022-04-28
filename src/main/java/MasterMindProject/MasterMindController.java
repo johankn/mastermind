@@ -1,4 +1,4 @@
-package exampleproject;
+package MasterMindProject;
 
 import java.util.ArrayList;
 
@@ -141,8 +141,8 @@ public class MasterMindController {
          feedBacks.add(FB6);
 
     }
-
-    public void handleButtonClickColor(ActionEvent event){
+    @FXML
+    private void handleButtonClickColor(ActionEvent event){
     choose4.setText("");
         if (game.getCounter()<3){
         Button activatedButton = (Button) event.getSource();
@@ -162,8 +162,8 @@ public class MasterMindController {
         choose4.setText("Click submit");
     }
     }
-
-    public void handleButtonClickSubmit(){
+    @FXML
+    private void handleButtonClickSubmit(){
         choose4.setText("");
         if ((game.getCounter()==3)){
 
@@ -187,7 +187,8 @@ public class MasterMindController {
             choose4.setText("You have to pick four!");
         }
     }
-    public void handleButtonClickUndo(){
+    @FXML
+    private void handleButtonClickUndo(){
         choose4.setText("");
         if (game.getCounter()>-1){
             game.setCounter(-1);
@@ -198,7 +199,8 @@ public class MasterMindController {
 
     }
     }
-    public void handleButtonClickSubmitName(){
+    @FXML
+    private void handleButtonClickSubmitName(){
         try{
             String name = textfield.getText();
             //System.out.println(name);
@@ -224,8 +226,8 @@ public class MasterMindController {
             circle.setFill(javafx.scene.paint.Color.WHITE);
         }
     }
-
-    public void handleButtonClickReset(){
+    @FXML
+    private void handleButtonClickReset(){
         game.resetGame(randomFasit);
         leaderBoard.setVisible(false);
         masterPane.setVisible(true);

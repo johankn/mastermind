@@ -1,4 +1,4 @@
-package exampleproject;
+package MasterMindProject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,6 +19,9 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import MasterMindProject.LeaderBoard;
+import MasterMindProject.Player;
 
 public class LeaderBoardTest {
     private LeaderBoard testLeaderBoard = new LeaderBoard("testLeaderBoard.txt");

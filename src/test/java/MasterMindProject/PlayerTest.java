@@ -1,4 +1,4 @@
-package exampleproject;
+package MasterMindProject;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import MasterMindProject.Player;
 
 public class PlayerTest {
     Player p1 = new Player();
