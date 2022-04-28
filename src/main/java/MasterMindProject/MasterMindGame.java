@@ -126,15 +126,23 @@ public class MasterMindGame {
     public Player getPlayer() {
         return player;
     }
+
     public LeaderBoard getLeaderBoard() {
         return LeaderBoard;
+    }
+
+    public String printLeaderBoard() {
+        return this.LeaderBoard.printLeaderboard();
+    }
+    
+    public void writePlayerToFile(){
+        this.LeaderBoard.writePlayerToFile(this.player);
     }
 
     public void gameWon(String name) {
         this.player.setDiffTime((int)(endTime - startTime)/1000);
         this.player.setScore(this.submitCounter);
         this.player.setName(name);
-        //this.LeaderBoard.write2file(this.player); //hvis vi har denne her blir det skrevet til fil i testene for gameWon()
         
     }
 

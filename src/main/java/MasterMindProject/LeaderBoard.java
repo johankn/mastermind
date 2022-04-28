@@ -65,7 +65,7 @@ public class LeaderBoard implements ILeaderBoard{
 
     }
     @Override
-    public void write2file(Player p) {
+    public void writePlayerToFile(Player p) {
 
         players = this.getListOfPlayers();
         players.add(p);
@@ -95,8 +95,8 @@ public class LeaderBoard implements ILeaderBoard{
         LeaderBoard lb = new LeaderBoard("LeaderBoard.txt");
         Player p1 = new Player("jonny", 10, 120);
         Player p2 = new Player("peter", 6, 24);
-        lb.write2file(p1);
-        lb.write2file(p2);
+        lb.writePlayerToFile(p1);
+        lb.writePlayerToFile(p2);
         System.out.println(lb.getListOfPlayers());
         System.out.println(lb.printLeaderboard());
         

@@ -177,9 +177,9 @@ public class MasterMindController {
         try{
             String name = textfield.getText();
             game.gameWon(name);
-            game.getLeaderBoard().write2file(game.getPlayer()); //kan enten ha denne i gameWon() eller her, hvis den er i gameWon blir players addet hver gang vi kjører testen
+            game.writePlayerToFile();
             leaderBoard.setVisible(true);
-            Text text = new Text(game.getLeaderBoard().printLeaderboard());
+            Text text = new Text(game.printLeaderBoard());
             leaderBoard.setContent(text);
             submitName.setVisible(false);
             System.out.println(game.getPlayer());
