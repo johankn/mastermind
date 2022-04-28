@@ -39,7 +39,7 @@ public class LeaderBoard implements ILeaderBoard{
         }
     }
 
-    public String printLeaderboard() throws IOException{ 
+    public String printLeaderboard() { 
     
             String topPlayers = this.getListOfPlayers().stream().map(x-> x.getName() + "\n" + " - Guesses: " + x.getScore() +"\n" +" - Time: " + x.getDiffTime()+"s" + "\n").
             collect(Collectors.joining("\n"));
@@ -98,7 +98,7 @@ public class LeaderBoard implements ILeaderBoard{
         lb.write2file(p1);
         lb.write2file(p2);
         System.out.println(lb.getListOfPlayers());
-        lb.initializeLeaderboard();
+        System.out.println(lb.printLeaderboard());
         
 
         

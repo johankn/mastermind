@@ -1,6 +1,2 @@
-exampleproject.Player@6de1d367
-exampleproject.Player@3267b999
-exampleproject.Player@2670b5ff
-exampleproject.Player@4cfda6ca
-exampleproject.Player@2fe43ed9
-exampleproject.Player@20c0e1cd
+peter 6 24
+jonny 10 120
