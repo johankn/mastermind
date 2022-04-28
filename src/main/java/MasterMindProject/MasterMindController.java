@@ -124,11 +124,10 @@ public class MasterMindController {
         String color = clicked.getId();
 
         game.addColor(color);
-        //System.out.println(game.getTryList());
 
         Color x = Color.web(color);
 
-        //dette er åpenbart tatt fra stackOverflow^^^
+        //mye tatt fra stackOverflow, gjør knappen om til en string-farge
 
         (circles.get(game.getCounter())).setFill(x);
     }
@@ -177,9 +176,8 @@ public class MasterMindController {
     private void handleButtonClickSubmitName(){
         try{
             String name = textfield.getText();
-            //System.out.println(name);
             game.gameWon(name);
-            game.getLeaderBoard().write2file(game.getPlayer()); //kan enten ha denne i gameWon() eller her, hvis den er i gameWon blir players addet hver gang vi tester
+            game.getLeaderBoard().write2file(game.getPlayer()); //kan enten ha denne i gameWon() eller her, hvis den er i gameWon blir players addet hver gang vi kjører testen
             leaderBoard.setVisible(true);
             Text text = new Text(game.getLeaderBoard().printLeaderboard());
             leaderBoard.setContent(text);

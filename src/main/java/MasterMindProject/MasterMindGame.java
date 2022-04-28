@@ -41,8 +41,6 @@ public class MasterMindGame {
         //lager en kopi av raden til brukeren for å eventuelt fjerne duplikater
         List<String> newList = new ArrayList<>(this.tryList);
 
-        //long y = row.stream().filter(yo -> x.contains(x)).count();
-
         //sjekker om lik farge og posisjon
         for (int i = 0; i < this.tryList.size(); i++) {
             if (this.tryList.get(i).equals(this.fasit.get(i))){
