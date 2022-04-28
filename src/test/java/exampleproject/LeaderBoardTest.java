@@ -130,14 +130,16 @@ void testWrite2File() {
     @Test
     void testPrintLeaderboard() throws Exception {
         Assertions.assertEquals("""
-                        LEADERBOARD
-        Heisenberg
-         - Guesses: 3
-         - Time: 49s
-        NielsBohr
-         - Guesses: 2
-         - Time: 97s
-         """, testLeaderBoard.printLeaderboard().toString());
+-----------LEADERBOARD-----------
+
+Heisenberg
+ - Guesses: 3
+ - Time: 49s
+
+NielsBohr
+ - Guesses: 2
+ - Time: 97s
+         """, testLeaderBoard.printLeaderboard());
         System.out.println(testLeaderBoard.printLeaderboard());
     }
 

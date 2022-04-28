@@ -44,7 +44,7 @@ public class LeaderBoard implements ILeaderBoard{
             String topPlayers = this.getListOfPlayers().stream().map(x-> x.getName() + "\n" + " - Guesses: " + x.getScore() +"\n" +" - Time: " + x.getDiffTime()+"s" + "\n").
             collect(Collectors.joining("\n"));
 
-            return "                LEADERBOARD\n\n" +topPlayers;
+            return "-----------LEADERBOARD-----------\n\n" + topPlayers;
     }
     
 
