@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 public class generateRandomFasit implements IGenerateFasit {
-    List<String> fasit = new ArrayList<String>();
+    private List<String> fasit = new ArrayList<String>();
 
     @Override
     public List<String> generateFasit() {

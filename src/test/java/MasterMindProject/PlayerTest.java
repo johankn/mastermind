@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import MasterMindProject.Player;
@@ -17,7 +18,8 @@ public class PlayerTest {
     Player p1 = new Player();
     
     @Test
-    void testValidUserName(){
+    @DisplayName("tester valideringen av navn med ulike input verdier")
+    public void testValidUserName(){
         Assertions.assertThrows(IllegalArgumentException.class, ()-> p1.setName("Bob 98 v"), "feil for mellomrom "); 
         Assertions.assertThrows(IllegalArgumentException.class, ()-> p1.setName("ijhkdshsdkldkjahflkadjhlakdjfjfhdskjf"), "feil for for langt usernam"); 
         Assertions.assertThrows(IllegalArgumentException.class, ()-> p1.setName("johan$$$gg"), "feil for spesialtegn"); 
@@ -25,7 +27,8 @@ public class PlayerTest {
         Assertions.assertDoesNotThrow(()->p1.setName("johan99"), "kun tall og bokstaver, ingen mellomrom og under 26 bokstaver er godkjent");
     }
     @Test
-    void testComparePlayers(){
+    @DisplayName("tester metoden for å sammenligne spillere og sortere dem")
+    public void testComparePlayers(){
         Player p2 = new Player("Hanne", 3, 134);
         Player p3 = new Player("Georg", 3, 102);
         Player p4 = new Player("Ponny", 2, 178);

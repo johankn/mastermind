@@ -14,60 +14,34 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
 public class MasterMindController {
-    @FXML Pane masterPane;
+    @FXML private Pane masterPane;
 
-    @FXML Pane popUp;
-    @FXML TextField textfield;
-    @FXML Button submitName;
-    @FXML Label validname;
+    @FXML private Pane popUp;
+    @FXML private TextField textfield;
+    @FXML private Button submitName;
+    @FXML private Label validname;
 
-    @FXML Circle labelOne_1;
-    @FXML Circle labelOne_2;
-    @FXML Circle labelOne_3;
-    @FXML Circle labelOne_4;
+    @FXML private Circle labelOne_1, labelOne_2, labelOne_3, labelOne_4;
 
-    @FXML Circle labelTwo_1;
-    @FXML Circle labelTwo_2;
-    @FXML Circle labelTwo_3;
-    @FXML Circle labelTwo_4;
+    @FXML private Circle labelTwo_1, labelTwo_2, labelTwo_3, labelTwo_4;
 
-    @FXML Circle labelThree_1;
-    @FXML Circle labelThree_2;
-    @FXML Circle labelThree_3;
-    @FXML Circle labelThree_4;
+    @FXML private Circle labelThree_1, labelThree_2, labelThree_3, labelThree_4;
 
-    @FXML Circle labelFour_1;
-    @FXML Circle labelFour_2;
-    @FXML Circle labelFour_3;
-    @FXML Circle labelFour_4;
+    @FXML private Circle labelFour_1, labelFour_2, labelFour_3, labelFour_4;
 
-    @FXML Circle labelFive_1;
-    @FXML Circle labelFive_2;
-    @FXML Circle labelFive_3;
-    @FXML Circle labelFive_4;
+    @FXML private Circle labelFive_1, labelFive_2, labelFive_3, labelFive_4;
 
-    @FXML Circle labelSix_1;
-    @FXML Circle labelSix_2;
-    @FXML Circle labelSix_3;
-    @FXML Circle labelSix_4;
+    @FXML private Circle labelSix_1, labelSix_2, labelSix_3, labelSix_4;
 
-    @FXML Circle labelSeven_1;
-    @FXML Circle labelSeven_2;
-    @FXML Circle labelSeven_3;
-    @FXML Circle labelSeven_4;
+    @FXML private Circle labelSeven_1, labelSeven_2, labelSeven_3, labelSeven_4;
 
-    @FXML Label choose4;
+    @FXML private Label choose4;
 
-    @FXML Label FB1;
-    @FXML Label FB2;
-    @FXML Label FB3;
-    @FXML Label FB4;
-    @FXML Label FB5;
-    @FXML Label FB6;
+    @FXML private Label FB1, FB2, FB3, FB4, FB5, FB6;
 
-    @FXML ScrollPane leaderBoard;
+    @FXML private ScrollPane leaderBoard;
 
-    @FXML Label lostGame;
+    @FXML private Label lostGame;
 
     private ArrayList<Circle> circles = new ArrayList<>();
 

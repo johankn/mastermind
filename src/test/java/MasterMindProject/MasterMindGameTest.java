@@ -20,7 +20,8 @@ public class MasterMindGameTest {
     private generateConstantFasit constantFasit = new generateConstantFasit();
 
     @Test
-    void testConstructor(){
+    @DisplayName("tester kontruktør for game-klassen, at riktig fasit genereres og starttid er nåtid")
+    public void testConstructor(){
         MasterMindGame game = new MasterMindGame(constantFasit);
         Assertions.assertEquals(Arrays.asList("BLUE","BLACK","YELLOW","RED"), game.getFasit()); //constantFasit er satt til å være ["BLUE","BLACK","YELLOW","RED"]. 
         Assertions.assertEquals((System.currentTimeMillis()/1000), (game.getStartTime()/1000), "sjekker om startid blir nåtid, deler på 1000 for å få sekunder");
@@ -28,7 +29,8 @@ public class MasterMindGameTest {
     }
 
     @Test
-    void testAddColor(){ 
+    @DisplayName("tester at addcolor til tryList gir riktige farger og størrelse")
+    public void testAddColor(){ 
         MasterMindGame game = new MasterMindGame(randomFasit);
         
         game.addColor("RED");
@@ -55,7 +57,8 @@ public class MasterMindGameTest {
 		
     }
     @Test
-    void testCompareRows(){
+    @DisplayName("tester sompareRows og at man får riktig tilbakemelding når man sammenligner en tryList med en konstant fasit")
+    public void testCompareRows(){
         MasterMindGame game = new MasterMindGame(constantFasit);
         //constantFasit er satt til å være ["BLUE","BLACK","YELLOW","RED"]. 
         game.setTryList(Arrays.asList("RED","GREEN","BLUE","PINK")); //kan ikke ha fargen PINK i setTrylist
@@ -80,7 +83,8 @@ public class MasterMindGameTest {
     }
 
     @Test
-    void testSubmit(){
+    @DisplayName("tester submit metoden når man sender inn en tryList")
+    public void testSubmit(){
         MasterMindGame game = new MasterMindGame(constantFasit);
         game.setTryList(Arrays.asList("BLUE","BLACK","BLACK","BLACK"));
         Assertions.assertEquals("[BLUE, BLACK, BLACK, BLACK]", game.getTryList().toString());
@@ -99,7 +103,8 @@ public class MasterMindGameTest {
     }
     
     @Test
-    void testGenerateRandomFasit(){ //tester det vi kan for random fasit
+    @DisplayName("tester at randomfasit inneholder de gitte fargene og har 4 farger")
+    public void testGenerateRandomFasit(){ //tester det vi kan for random fasit
         MasterMindGame game = new MasterMindGame(randomFasit);
         List<String> validColors = new ArrayList<String>(Arrays.asList("BLUE","BLACK","YELLOW","RED","GREEN","PURPLE"));
         Assertions.assertTrue(game.getFasit().stream().allMatch(x->validColors.contains(x)));
@@ -107,7 +112,8 @@ public class MasterMindGameTest {
     }
 
     @Test
-    void testGameWon(){
+    @DisplayName("tester at gameWon setter verdier for spilleren, med riktig score (submitcounter), og tid.")
+    public void testGameWon(){
         MasterMindGame game = new MasterMindGame(constantFasit);
         game.setTryList(Arrays.asList("BLUE","BLACK","YELLOW","RED"));
         game.submit();
@@ -119,7 +125,8 @@ public class MasterMindGameTest {
 
     }
     @Test
-    void testResetGame(){
+    @DisplayName("tester at attributtene tilbakstilles når resetgame metoden kjøres")
+    public void testResetGame(){
         MasterMindGame game = new MasterMindGame(constantFasit);
         game.resetGame(constantFasit);
         Assertions.assertEquals(-1, game.getCounter());

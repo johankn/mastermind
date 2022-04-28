@@ -29,7 +29,7 @@ public class LeaderBoard implements ILeaderBoard{
         } 
     }
 
-    void initializeLeaderboard(){ //hvis man vil slette og starte på nytt leaderboard
+    private void initializeLeaderboard(){ //hvis man vil slette og starte på nytt leaderboard
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(this.filename)))) {
             writer.print("");
             writer.close();

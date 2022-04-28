@@ -18,6 +18,7 @@ import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import MasterMindProject.LeaderBoard;
@@ -28,7 +29,8 @@ public class LeaderBoardTest {
     
     
 @BeforeEach
-void new_LeaderBoard() throws Exception{
+@DisplayName("Setter opp en testfil som inneholder to spillere")
+public void new_LeaderBoard() throws Exception{
     File file = new File("testLeaderBoard.txt");
     try {
         file.createNewFile();
@@ -55,7 +57,8 @@ void new_LeaderBoard() throws Exception{
 
 
 @Test
-void testConstructor() throws Exception {
+@DisplayName("tester konstruktøren, om en fil lages, og sletter den etterpå")
+public void testConstructor() throws Exception {
     File file = new File("ConstructorTestLeaderBoard.txt");
     Files.deleteIfExists(file.toPath());
     Assertions.assertFalse(file.exists(), "Filen eksisterer ikke");
@@ -67,32 +70,8 @@ void testConstructor() throws Exception {
 }
 
 @Test
-void testInitializeLeaderboard() {
-    try(Stream<String> liste = Files.lines(Paths.get("testLeaderBoard.txt"));){
-        String players = liste.collect(Collectors.joining(" "));
-        Assertions.assertEquals("Heisenberg 3 49 NielsBohr 2 97", players);
-    }
-
-    catch (IOException e) {
-        e.printStackTrace();
-    }
-
-    testLeaderBoard.initializeLeaderboard();
-
-    try(Stream<String> liste = Files.lines(Paths.get("testLeaderBoard.txt"));){
-                String players = liste.collect(Collectors.joining(" "));        
-                Assertions.assertEquals("" , players); 
-
-    }
-
-    catch (IOException e) {
-        e.printStackTrace();
-    }
-    
-    
-}
-@Test 
-void testGetListOfPlayers() {
+@DisplayName("tester om getlistofplayers returenerer en liste av spillerne i filen") 
+public void testGetListOfPlayers() {
     Assertions.assertEquals("[Heisenberg 3 49, NielsBohr 2 97]", testLeaderBoard.getListOfPlayers().toString());
     try (PrintWriter writer = new PrintWriter("testLeaderBoard.txt")) {
         writer.print("");
@@ -104,7 +83,8 @@ void testGetListOfPlayers() {
 }
 
 @Test
-void testWrite2File() {
+@DisplayName("tester om write2file legger til spillere til filen")
+public void testWrite2File() {
 
     try(Stream<String> liste = Files.lines(Paths.get("testLeaderBoard.txt"));){
         String players = liste.collect(Collectors.joining(" "));
@@ -131,7 +111,8 @@ void testWrite2File() {
 
 }
     @Test
-    void testPrintLeaderboard() throws Exception {
+    @DisplayName("tester om printleaderboard returnerer innholdet i filen på det formatet vi ønsker ")
+    public void testPrintLeaderboard() throws Exception {
         Assertions.assertEquals("""
 -----------LEADERBOARD-----------
 
