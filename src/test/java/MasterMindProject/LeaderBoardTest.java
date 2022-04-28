@@ -73,13 +73,16 @@ public void testConstructor() throws Exception {
 @DisplayName("tester om getlistofplayers returenerer en liste av spillerne i filen") 
 public void testGetListOfPlayers() {
     Assertions.assertEquals("[Heisenberg 3 49, NielsBohr 2 97]", testLeaderBoard.getListOfPlayers().toString());
+    Assertions.assertEquals(2, testLeaderBoard.getListOfPlayers().size());
     try (PrintWriter writer = new PrintWriter("testLeaderBoard.txt")) {
         writer.print("");
+        writer.close();
     } 
     catch (IOException e) {
         e.printStackTrace();
     }
     Assertions.assertEquals("[]", testLeaderBoard.getListOfPlayers().toString());
+    Assertions.assertEquals(0, testLeaderBoard.getListOfPlayers().size());
 }
 
 @Test
