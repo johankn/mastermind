@@ -25,7 +25,7 @@ public class MasterMindGame {
         this.fasitGenerator = fasitGenerator;
         this.fasit = this.fasitGenerator.generateFasit();
         this.startTime = System.currentTimeMillis(); //når bruker starter appen starter tiden
-        System.out.println(fasit);
+        System.out.println(fasit); //sysouter fasit for raskere brukertesting
     }
 
     public boolean isGameWon() {
@@ -63,7 +63,7 @@ public class MasterMindGame {
             } 
             }
 
-        //her kan vi også bare ha en toString på slutten istedenfor 
+        
         if (sameColorAndPlace != 4){
             return "Right color and place: "+ sameColorAndPlace + "\n"+
             "Right color but wrong place: " + sameColor + "";
@@ -134,7 +134,7 @@ public class MasterMindGame {
     public String printLeaderBoard() {
         return this.LeaderBoard.printLeaderboard();
     }
-    
+
     public void writePlayerToFile(){
         this.LeaderBoard.writePlayerToFile(this.player);
     }
