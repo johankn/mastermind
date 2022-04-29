@@ -93,12 +93,12 @@ public class LeaderBoard implements ILeaderBoard{
 
     public static void main(String[] args) {
         LeaderBoard lb = new LeaderBoard("LeaderBoard.txt");
-        Player p1 = new Player("jonny", 10, 120);
-        Player p2 = new Player("peter", 6, 24);
+        Player p1 = new Player("Jonny", 2, 43);
+        Player p2 = new Player("Peter", 6, 132);
         lb.writePlayerToFile(p1);
         lb.writePlayerToFile(p2);
-        System.out.println(lb.getListOfPlayers());
-        System.out.println(lb.printLeaderboard());
+        
+        
         
 
         

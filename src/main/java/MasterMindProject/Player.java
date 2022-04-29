@@ -27,7 +27,7 @@ public class Player implements Comparable<Player>{
             this.name = name;
         }
         else{
-            throw new IllegalArgumentException("Navn kan kun inneholde bokstaver og tall og må være kortere enn 26 bokstaver");
+            throw new IllegalArgumentException();
         }
     }
 

@@ -127,8 +127,6 @@ public class MasterMindController {
 
         Color x = Color.web(color);
 
-        //mye tatt fra stackOverflow, gjør knappen om til en string-farge
-
         (circles.get(game.getCounter())).setFill(x);
     }
     else{
